@@ -123,7 +123,7 @@ var Game = {
         <img class="kid01" src="img/kid01.png" alt="" draggable="false">\
         <img class="teacher" src="img/teacher.png" alt="" draggable="false">\
         <img class="btn01" src="img/btn01.png" alt="" draggable="false">\
-        <input class="nickname" type="text" name="nickname" placeholder="輸入暱稱" value="小婵婵">\
+        <input class="nickname" type="text" name="nickname" placeholder="小婵婵" value="小婵婵">\
         <div class="btns"><span class="btn02">排行榜</span><span class="btn03">選擇難度</span></div>\
         <div class="logobar"><img class="logo" src="img/logo.png" alt="" draggable="false"></div>';
 

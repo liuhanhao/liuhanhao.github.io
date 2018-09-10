@@ -187,7 +187,7 @@ var utils = {
                 timer;
 
             div.className = 'popup-inner loading-icon';
-            div.innerHTML = '老婆大人教师节快乐心动值';
+            div.innerHTML = '老婆大人教师节快乐';
             popup.show(div);
 
             timer = setTimeout(function(){
@@ -201,7 +201,7 @@ var utils = {
                 if(cur === total){
                     enter();
                 }else{
-                    div.innerHTML = '老婆大人教师节快乐心动值' + Math.round(cur/total * 100) + '% ';
+                    div.innerHTML = '老婆大人教师节快乐' + Math.round(cur/total * 100) + '% ';
                 }
             });
 

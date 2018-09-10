@@ -123,9 +123,9 @@ var Game = {
         <img class="kid01" src="img/kid01.png" alt="" draggable="false">\
         <img class="teacher" src="img/teacher.png" alt="" draggable="false">\
         <img class="btn01" src="img/btn01.png" alt="" draggable="false">\
-        <input class="nickname" type="text" name="nickname" placeholder="輸入暱稱">\
+        <input class="nickname" type="text" name="nickname" placeholder="輸入暱稱" text="小婵婵">\
         <div class="btns"><span class="btn02">排行榜</span><span class="btn03">選擇難度</span></div>\
-        <div class="logobar"><p class="logo" >王丽婵专属</p></div>';
+        <p>王丽婵专属</p>';
 
         degreeDom = document.createElement('div');
         degreeDom.className = 'degree-list popup-inner';
@@ -279,7 +279,7 @@ var Game = {
         <img class="btn-again" src="img/btn-again.png">\
         <img class="btn-back-home" src="img/btn-back-home.png">\
         <img class="btn-share" src="img/btn-share.png">\
-		<p class="logo2" >王丽婵专属</p>;
+		<p class="logo2" >王丽婵专属</p>';
         light = scene.querySelector('.light');
         lbox = scene.querySelector('.level-box');
         lnum = scene.querySelector('.level-num');

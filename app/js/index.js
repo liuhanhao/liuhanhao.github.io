@@ -125,7 +125,7 @@ var Game = {
         <img class="btn01" src="img/btn01.png" alt="" draggable="false">\
         <input class="nickname" type="text" name="nickname" placeholder="輸入暱稱">\
         <div class="btns"><span class="btn02">排行榜</span><span class="btn03">選擇難度</span></div>\
-        <div class="logobar"><img class="logo" src="img/logo.png" alt="" draggable="false"></div>';
+        <div class="logobar"><p class="logo" >王丽婵专属</p></div>';
 
         degreeDom = document.createElement('div');
         degreeDom.className = 'degree-list popup-inner';

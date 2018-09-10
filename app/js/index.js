@@ -279,8 +279,7 @@ var Game = {
         <img class="btn-again" src="img/btn-again.png">\
         <img class="btn-back-home" src="img/btn-back-home.png">\
         <img class="btn-share" src="img/btn-share.png">\
-        <img class="logo2" src="img/logo.png">';
-
+		<p class="logo2" >王丽婵专属</p>;
         light = scene.querySelector('.light');
         lbox = scene.querySelector('.level-box');
         lnum = scene.querySelector('.level-num');

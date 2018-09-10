@@ -125,7 +125,7 @@ var Game = {
         <img class="btn01" src="img/btn01.png" alt="" draggable="false">\
         <input class="nickname" type="text" name="nickname" placeholder="輸入暱稱" text="小婵婵">\
         <div class="btns"><span class="btn02">排行榜</span><span class="btn03">選擇難度</span></div>\
-        <div class="logobar"><img class="logo" src="img/logo.png" alt="" draggable="false"></div>';
+        <div class="logobar"><p class="logo">王丽婵专属</p></div>';
 
         degreeDom = document.createElement('div');
         degreeDom.className = 'degree-list popup-inner';
@@ -186,7 +186,7 @@ var Game = {
         pop = utils.popup(null, this.stage);
         pop.onhide = fn;
         pop.show('<div class="popup-inner">' +
-            '<p style="text-indent: 2em;">30秒内，抓住正在逃跑的熊孩子並拖到底部罰站，抓住孩子則得分，出現在離底部越遠的孩子分數越高。孩子逃出教室將扣分。<br>' +
+            '<p style="text-indent: 2em;">30秒内，抓住正在逃跑的熊孩子並拖到底部罰站，抓住孩子則得分，出現在離底部越遠的孩子分數越高。孩子逃出教室將扣分。\n预祝小婵婵玩得开心,嘻嘻<br>' +
             '<img id="i-see" class="btn-i-see" src="img/btn-i-see.png" style="height: 2.5em;display: block;margin: 0 auto;">' +
             '</div>');
         btn = document.getElementById('i-see');
@@ -279,7 +279,7 @@ var Game = {
         <img class="btn-again" src="img/btn-again.png">\
         <img class="btn-back-home" src="img/btn-back-home.png">\
         <img class="btn-share" src="img/btn-share.png">\
-		<img class="logo2" src="img/logo.png">';
+		<p class="logo2">王丽婵专属</p>';
         light = scene.querySelector('.light');
         lbox = scene.querySelector('.level-box');
         lnum = scene.querySelector('.level-num');

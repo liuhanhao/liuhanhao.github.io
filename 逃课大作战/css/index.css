@@ -1,0 +1,555 @@
+html,body{
+    height: 100%;
+}
+body{
+    margin: 0;
+    font-family: "Microsoft YaHei", sans-serif;
+    overflow: hidden;
+}
+.cover{
+    overflow: hidden;
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+.layout{
+    width: 375px;
+    height: 667px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+@media (max-width: 640px) {
+    .layout{
+        width: 100%;
+        height: 100%;
+    }
+}
+.scene{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.scene1{
+    background: url("../img/bg01.jpg") no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+.title-img{
+    width: 90%;
+    display: block;
+    margin: 6% auto 0;
+    opacity: 0;
+}
+.kid01,
+.teacher,
+.nickname,
+.btn01{
+    position: absolute;
+    opacity: 0;
+}
+.kid01{
+    width: 48%;
+    right: 40%;
+    z-index: 2;
+    bottom: 12%;
+}
+.teacher{
+    width: 66%;
+    right: 3%;
+    bottom: 12%;
+    z-index: 1;
+}
+.btn01{
+    width: 24%;
+    bottom: 20%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 3;
+    cursor: pointer;
+}
+.nickname{
+    opacity: 0;
+    bottom: 13%;
+    -webkit-appearance: none;
+    background: rgba(0,0,0,.6);
+    z-index: 4;
+    border: 1px solid #ba00cd;
+    width: 50%;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    padding: .4em .6em;
+    font-size: 16px;
+    font-weight: bold;
+    color: #eee;
+    outline: none;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+.btns{
+    position: absolute;
+    width: 100%;
+    bottom: 8%;
+    color: #fff;
+    opacity: 0;
+    text-align: center;
+    z-index: 3;
+}
+.btn02,
+.btn03{
+    cursor: pointer;
+    border-bottom: 1px dashed;
+    margin: 0 1em;
+    font-weight: bolder;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.logobar{
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    background: rgba(0, 0, 0, .5);
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    padding: 1% 0;
+    opacity: 0;
+}
+.logo{
+    width: 20%;
+}
+.on .title-img{
+    -webkit-animation: fall-down .8s forwards;
+    -o-animation: fall-down .8s forwards;
+    animation: fall-down .8s forwards;
+}
+.on .btn01{
+    -webkit-animation: fade-in .5s 1.5s, beating 1s 2s linear infinite;
+    -o-animation:  fade-in .5s 1.5s, beating 1s 2s linear infinite;
+    animation:  fade-in .5s 1.5s, beating 1s 2s linear infinite;
+}
+.on .nickname,
+.on .btns{
+    -webkit-animation: fade-in 1s 1.5s forwards;
+    -o-animation: fade-in 1s 1.5s forwards;
+    animation: fade-in 1s 1.5s forwards;
+}
+.on .kid01{
+    -webkit-animation: fade-in 1s .5s forwards;
+    -o-animation: fade-in 1s .5s forwards;
+    animation: fade-in 1s .5s forwards;
+}
+.on .teacher{
+    -webkit-animation: fade-in 1s 1s forwards;
+    -o-animation: fade-in 1s 1s forwards;
+    animation: fade-in 1s 1s forwards;
+}
+.on .logobar{
+    -webkit-animation: fade-in .6s 1.8s forwards;
+    -o-animation: fade-in .6s 1.8s forwards;
+    animation: fade-in .6s 1.8s forwards;
+}
+.degree-list{
+    font-size: 18px;
+    font-weight: bolder;
+}
+.degree-item{
+    border-bottom: 1px dashed;
+    margin: .5em .4em;
+}
+
+.scene2{
+    background: url("../img/bg02.jpg") no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.kid-head{
+    position: absolute;
+    width: 10%;
+    top: 2%;
+    left: 3%;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-box-shadow:  0 0 5px #333;
+    -moz-box-shadow:  0 0 5px #333;
+    box-shadow:  0 0 5px #333;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 1px solid #ccc5f0;
+}
+.score,
+.clock{
+    position: absolute;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    color: #ba00cd;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.score{
+    left: 14.3%;
+    top: 4%;
+    width: 3em;
+}
+.clock{
+    width: 6em;
+    top: 3%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    padding: .4em;
+    background: #b2abd5;
+    line-height: 1;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-box-shadow: 0 0 5px #333;
+    -moz-box-shadow: 0 0 5px #333;
+    box-shadow: 0 0 5px #333;
+    border: 1px solid #ccc5f0;
+}
+.music-btn{
+    position: absolute;
+    right: 2%;
+    top: 2%;
+    width: 8%;
+    padding-top: 8%;
+    height: 0;
+    background: rgba(0,0,0,.7) url("../img/music-icon.png") no-repeat center;
+    -webkit-background-size: auto 80%;
+    background-size: auto 80%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 1px solid #eee;
+}
+.door01,
+.door02{
+    position: absolute;
+    width: 15%;
+    left: 0;
+    z-index: 1;
+}
+.door01{
+    bottom: 65.5%;
+}
+.door02{
+    bottom: 25%;
+}
+.teacher02{
+    position: absolute;
+    width: 36%;
+    bottom: 0;
+    right: 0;
+    z-index: 99;
+    pointer-events: none;
+}
+.student{
+    width: 24%;
+    position: absolute;
+    left: 100%;
+    z-index: 2;
+}
+.student1{
+    bottom: 63%;
+    z-index: 2;
+    -webkit-animation: running-path1 4s linear infinite;
+    -o-animation: running-path1 4s linear infinite;
+    animation: running-path1 4s linear infinite;
+}
+.student2{
+    bottom: 48%;
+    z-index: 3;
+    -webkit-animation: running-path2 4s linear infinite;
+    -o-animation: running-path2 4s linear infinite;
+    animation: running-path2 4s linear infinite;
+}
+.student3{
+    bottom: 42%;
+    z-index: 4;
+    -webkit-animation: running-path3 4s linear infinite;
+    -o-animation: running-path3 4s linear infinite;
+    animation: running-path3 4s linear infinite;
+}
+.student4{
+    bottom: 22%;
+    z-index: 5;
+    -webkit-animation: running-path1 4s linear infinite;
+    -o-animation: running-path1 4s linear infinite;
+    animation: running-path1 4s linear infinite;
+}
+.running01,
+.running02,
+.kid-caught{
+    width: 100%;
+    display: block;
+}
+.running01,
+.running02{
+    opacity: 0;
+}
+.kid-caught,
+.running02{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.running .running01{
+    -webkit-animation: show-hide .3s step-start infinite;
+    -o-animation: show-hide .3s step-start infinite;
+    animation: show-hide .3s step-start infinite;
+}
+.running .running02{
+    -webkit-animation: show-hide .3s infinite step-start reverse;
+    -o-animation: show-hide .3s infinite step-start reverse;
+    animation: show-hide .3s infinite step-start reverse;
+}
+.running .kid-caught{
+    opacity: 0;
+}
+.score-add{
+    position: absolute;
+    bottom: 10%;
+    left: 30%;
+    font-size: 30px;
+    color: #ba00cd;
+    text-shadow: 0 0 2px #fff;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 9;
+}
+.fade-in-out{
+    -webkit-animation: fade-and-move 1.5s linear;
+    -o-animation: fade-and-move 1.5s linear;
+    animation: fade-and-move 1.5s linear;
+}
+
+.light{
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+.light-show{
+    opacity: 1;
+    -webkit-animation: rotating 8s linear infinite;
+    -o-animation: rotating 8s linear infinite;
+    animation: rotating 8s linear infinite;
+}
+.level-box{
+    width: 84%;
+    overflow: hidden;
+    display: inline-block;
+    background: url("../img/level-bg.png") no-repeat center;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+.level-box-1{
+    background: url("../img/level-1.png") no-repeat center;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+.level-num{
+    width: 34%;
+    margin-top: 24%;
+    margin-right: 6.2%;
+    opacity: 0;
+}
+.level-num-show{
+    opacity: 1;
+}
+.level-score{
+    font-weight: bolder;
+}
+.level-text{
+    display: block;
+    margin: 16% auto 0;
+    padding-bottom: 4px;
+    border-bottom: 1px dashed #333;
+}
+.show-rank{
+    width: 48.4%;
+    margin: 3% auto 0;
+    display: block;
+}
+.rank-below-text{
+    color: #fff;
+    margin-top: -2%;
+}
+.btn-again{
+    width: 63%;
+    display: block;
+    margin: 3% auto 0;
+}
+.btn-back-home,
+.btn-share{
+    width: 26%;
+    margin: 5%;
+}
+.logo2{
+    width: 30%;
+    display: block;
+    margin: 0 auto;
+}
+
+.rank-title{
+    display: block;
+    width: 50%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: -8% auto 0;
+}
+.rank-body{
+    width: 90%;
+    background: #c3bedc;
+    padding: 10% 10px 5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0 auto;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+}
+.rank-list{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.rank-item{
+    display: table;
+    width: 100%;
+    background: #a69bdb;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    padding: 6px 0;
+    margin: 8px 0;
+}
+.rank-num,
+.rank-nick,
+.rank-score{
+    display: table-cell;
+    vertical-align: middle;
+}
+.rank-nick,
+.rank-score{
+    font-size: 18px;
+}
+.rank-num{
+    max-width: 3.5em;
+    min-width: 3em;
+    width: 3em;
+    overflow: hidden;
+    color: #595959;
+    font-weight: bolder;
+    font-size: 22px;
+}
+.rank-nick{
+    max-width: 9.5em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #000;
+}
+.rank-score{
+    min-width: 3.5em;
+    max-width: 3.5em;
+    width: 3.5em;
+    color: #000;
+}
+.rank-item-title{
+    background: #6b5daa;
+    color: #fff;
+    padding: 4px;
+    -webkit-border-radius: 6px 6px 0 0;
+    -moz-border-radius: 6px 6px 0 0;
+    border-radius: 6px 6px 0 0;
+    font-weight: bolder;
+}
+.rank-user{
+    background: #b96bc1;
+    margin-top: 0;
+    margin-bottom: 8%;
+    -webkit-border-radius: 0 0 6px 6px;
+    -moz-border-radius: 0 0 6px 6px;
+    border-radius: 0 0 6px 6px;
+}
+.rank-user .rank-num,
+.rank-user .rank-score,
+.rank-user .rank-nick{
+    color: #fff;
+}
+.rank-item-1 .rank-num{
+    color: #c62a06;
+}
+.rank-item-2 .rank-num{
+    color: #ba00cd;
+}
+.rank-item-3 .rank-num{
+    color: #ffd200;
+}
+.rank-back{
+    width: 30%;
+    display: block;
+    margin: 3% auto;
+}
+
+.popup-inner{
+    display: inline-block;
+    text-align: justify;
+    padding: .5em 1em;
+    max-width: 80%;
+    background: #b2abd5;
+    color: #ba00cd;
+    border: 2px solid #ddd;
+    -webkit-border-radius: .5em;
+    -moz-border-radius: .5em;
+    border-radius: .5em;
+}
+
+.loading-icon::after{
+    content: '';
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 0 0 2px 2px;
+    -webkit-animation: rotating 1s linear infinite;
+    -o-animation: rotating 1s linear infinite;
+    animation: rotating 1s linear infinite;
+    vertical-align: middle;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}

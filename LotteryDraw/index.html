@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="content-language" content="zh-CN"/>
+    <title>Star me....</title>
+    <link href="source.css" type="text/css" rel="stylesheet">
+    <script src="lib/three.min.js"></script>
+    <script src="lib/tween.min.js"></script>
+    <script src="lib/TrackballControls.js"></script>
+    <script src="lib/CSS3DRenderer.js"></script>
+
+</head>
+
+<body>
+    <div id="notice">
+        请点击底部的选择文件，加载这种内容格式的<a href="https://github.com/OhBonsai/LotteryDraw/blob/master/config.txt">文本文件</a>
+        <br>
+        <h3>分号之前的内容表示共设几个级别的奖项</h3>
+        <h3>分号之后为员工的姓名/工号/部门</h3>
+        <br>
+        <br>
+        Please click *Choose File* Button in the Bottom of Page. Then load <a href="https://github.com/OhBonsai/LotteryDraw/blob/master/config.txt">text file</a> like this
+        <br>
+        <h3>Content behind *Semicolon* means how many level was set up.</h3>
+        <h3>Content after *Semicolon* means employee's name/id/office</h3>
+    </div>
+    <div id="container"></div>
+    <div id="menu">
+        <button id="un-draw-list">倒霉蛋</button>
+        <button id="draw-list">中奖名单</button>
+        <button id="chaos">开始</button>
+        <input id="draw-num" value="5">
+        <span>个</span>
+        <input id="draw-level" value="3">
+        <span>等奖</span>
+        <input type="file" id="file" name="files[]" multiple />
+    </div>
+
+    <script src="source.js"></script>
+</body>
+</html>

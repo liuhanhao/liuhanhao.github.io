@@ -1,0 +1,14 @@
+<template name="zoom-image">
+
+	<!-- 点击放大图片查看 -->
+	<view wx:if="{{selectImageUrl}}" class='look-image-super-view' catchtap='hiddeSelectImageUrl'>
+	
+	<!-- <image style='width: 100%;height: 100%;' src='{{selectImageUrl}}' mode='aspectFit'></image> -->
+	
+
+	<!-- scaleToFill -->
+	<image mode='aspectFit' src='{{selectImageUrl}}' bindtouchstart='touchStartHandle' bindtouchmove='touchMoveHandle' bindload='load' style="width: {{ touch.scaleWidth }}px;height: {{ touch.scaleHeight }}px"></image>
+
+	</view>
+
+</template>

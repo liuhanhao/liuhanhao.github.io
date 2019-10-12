@@ -1,0 +1,56 @@
+{
+	"pages": [
+		
+		"pages/index/index",
+		"pages/details/details",
+		"pages/mine/mine",
+		"pages/root/root",
+		"pages/editor/editor",
+		"pages/theme/theme"
+		
+	],
+	"window": {
+		"backgroundTextStyle": "dark",
+		"navigationBarBackgroundColor": "#0c99de",
+		"navigationBarTitleText": "千里飞马",
+		"navigationBarTextStyle": "white"
+	},
+
+	"tabBar": {
+		"color": "#707070",
+		"selectedColor": "#0c99de",
+		"borderStyle": "black",
+		"list": [
+			{
+				"selectedIconPath": "images/main/message_1.png",
+				"iconPath": "images/main/message_0.png",
+				"pagePath": "pages/root/root",
+				"text": "千里飞马"
+			},
+			{
+				"selectedIconPath": "images/main/supportList_1.png",
+				"iconPath": "images/main/supportList_0.png",
+				"pagePath": "pages/editor/editor",
+				"text": "开始制作"
+			},
+			{
+				"selectedIconPath": "images/main/personSession_1.png",
+				"iconPath": "images/main/personSession_0.png",
+				"pagePath": "pages/mine/mine",
+				"text": "我的二维码"
+			}
+		]
+	},
+
+	"requiredBackgroundModes": [
+		"audio"
+	],
+	"permission": {
+		"scope.userLocation": {
+			"desc": "你的位置信息将用于小程序位置接口的效果展示"
+		}
+	},
+
+	"cloud": true,
+	"sitemapLocation": "sitemap.json"
+}

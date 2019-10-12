@@ -1,0 +1,26 @@
+<!--pages/mine/mine.wxml-->
+
+<view class='tips-text'>多媒体二维码默认永久保存</view>
+
+<view class='white-view'>
+
+	<view>
+		<view class='label1'>当前时间:</view>
+		<view class='label2'>{{currentTime}}</view>
+	</view>
+
+	<view>
+		<view class='label1'>用户昵称:</view>
+		<view class='label2'>{{userInfo.nickName}}</view>
+	</view>
+
+	<view style='vertical-align:top;display: flex;flex-direction: row;'>
+		<view class='label1'>用户头像:</view>
+		<image class="mine-userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+	</view>
+
+	<view style='text-align: center;'>
+		<image class='qrcode-image' src='{{qrcodeURL}}'></image>
+	</view>
+
+</view>

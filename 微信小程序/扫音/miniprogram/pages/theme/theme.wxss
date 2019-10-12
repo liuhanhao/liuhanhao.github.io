@@ -1,0 +1,27 @@
+/* pages/theme/theme.wxss */
+
+.theme-backgroundImage {
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	position: fixed;
+	z-index: -1;
+}
+
+.theme-flex-column {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	/* align-items: flex-start; */
+}
+
+.theme-image {
+	width: 295rpx;
+	height: 413rpx;
+	margin-left: 40rpx;
+	margin-right: 40rpx;
+	margin-top: 40rpx;
+	margin-bottom: 40rpx;
+		color: 
+}

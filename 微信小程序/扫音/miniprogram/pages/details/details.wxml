@@ -1,0 +1,136 @@
+<import src="../editor/zoom-image.wxml"/>
+
+<image class='details-backgroundImage' 
+			src='{{backgroundImage}}'>
+</image>
+
+<!-- 收件信息 -->
+<block wx:if="{{showTo == 0 || showTo == 1}}">
+	<view class="{{showTo == 1 ? 'FadeInFrame-animation' : 'FadeInFrame-default'}}">
+		<view class='details-flex-row' style='padding:30rpx;'>
+			<text class='details-label' style='flex:none;' decode="true">To:&nbsp;</text>
+			<text class='details-label'>{{toName}}</text>
+		</view>
+	</view>
+</block>
+<block wx:else>
+	<view style='opacity: 1;'>
+		<view class='details-flex-row' style='padding:30rpx;'>
+			<text class='details-label' style='flex:none;' decode="true">To:&nbsp;</text>
+			<text class='details-label'>{{toName}}</text>
+		</view>
+	</view>
+</block>
+
+
+<!-- 视频 -->
+<block wx:if="{{video}}">
+	<movable-area scale-area="true" style="height: {{movableHeight}}rpx; width: 750rpx;position: fixed;z-index:50;margin-left:-140rpx;">
+		<movable-view scale="true" inertia="true" direction="all" x="580rpx" y="750rpx">
+			<video style="height: 230rpx; width: 280rpx;" src="{{video.fileCloudPath}}"></video>
+		</movable-view>
+	</movable-area>
+</block>
+
+<!-- 图片 -->
+<block wx:if="{{imgUrls.length > 0}}">
+	<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+		<block wx:for="{{imgUrls}}" wx:key="{{index}}">
+			<swiper-item bindtap='imageClickEvent' data-img-url='{{item}}'>
+				<image src="{{item}}" class="slide-image" mode='aspectFit'/>
+			</swiper-item>
+		</block>
+	</swiper>
+</block>
+
+<!-- 音频播放器 -->
+<block wx:if="{{audioInfo}}">
+	<view class='details-audio-view'>
+		<view style='position: relative;'>
+			<image class='details-audio-poster' src='{{audioInfo.poster}}'></image>
+			<image class='details-audio-poster-small' src="{{audioInfo.state==2 ?'../../images/stop.png' : '../../images/play.png'}}" bindtap='audioEvent'></image>
+		</view>
+		<view class='details-audio-author'>
+			<text style='margin-top:40rpx;'>{{audioInfo.name}}</text>
+			<text style='color: gray;font-size:27rpx;'>{{audioInfo.author}}</text>
+		</view>
+
+		<text style='color: gray;font-size:27rpx;margin-right:20rpx;margin-top:10rpx;'>{{audioInfo.duration}}</text>
+	</view>
+	<!-- <progress></progress> -->
+</block>
+
+
+<!-- 祝福语 -->
+<view style='text-align: center;margin-top:30rpx;'>
+	<block wx:for="{{textArray}}" wx:key="{{index}}">
+		<block wx:if="{{item.state == 0}}">
+			<view class="typing" style='opacity: 0;'>{{item.text}}</view>
+		</block>
+		<block wx:if="{{item.state == 1}}">
+			<view class="typing" style='opacity: 1;	animation: typing 2.3s steps(37, end), blink-caret .75s step-end infinite;'>{{item.text}}</view>
+		</block>
+		<block wx:if="{{item.state == 2}}">
+			<view class="typing" style='opacity: 1;'>{{item.text}}</view>
+		</block>
+	</block>
+</view>
+
+
+<!-- 发件信息 -->
+<block wx:if="{{showFrom == 0 || showFrom == 1}}">
+	<view class="{{showFrom == 1 ? 'FadeInFrame-animation' : 'FadeInFrame-default'}}" style='margin-top:180rpx;'>
+		<view class='details-flex-row' style='padding:30rpx;'>
+			<text class='details-label' style='flex:none;' decode="true">From:&nbsp;</text>
+			<text class='details-label'>{{fromName}}</text>
+		</view>
+		<view class='details-flex-row' style='padding: 0rpx 30rpx;'>
+			<text class='details-label' style='flex:none;' decode="true">发件位置:&nbsp;</text>
+			<text class='details-label'>{{address}}</text>
+		</view>
+		<view class='details-flex-row' style='padding:30rpx;'>
+			<text class='details-label' style='flex:none;' decode="true">发件日期:&nbsp;</text>
+			<text class='details-label'>{{fromDate}}</text>
+		</view>
+	</view>
+</block>
+<block wx:else>
+	<view style='margin-top:180rpx;opacity: 1;'>
+		<view class='details-flex-row' style='padding:30rpx;'>
+			<text class='details-label' style='flex:none;' decode="true">From:&nbsp;</text>
+			<text class='details-label'>{{fromName}}</text>
+		</view>
+		<view class='details-flex-row' style='padding: 0rpx 30rpx;'>
+			<text class='details-label' style='flex:none;' decode="true">发件位置:&nbsp;</text>
+			<text class='details-label'>{{address}}</text>
+		</view>
+		<view class='details-flex-row' style='padding:30rpx;'>
+			<text class='details-label' style='flex:none;' decode="true">发件日期:&nbsp;</text>
+			<text class='details-label'>{{fromDate}}</text>
+		</view>
+	</view>
+</block>
+
+<!-- 底部留白 -->
+<view style='height:50rpx;'></view>
+
+
+<!-- 背景音乐 -->
+<block wx:if="{{musicItem}}">
+	<image wx:if="{{isPlayingBackgroundAudio}}"
+			class='details-background-music'
+			style="animation: background-music 2s linear infinite;"
+			src='../../images/editor/backmusicImage.png'
+			bindtap='changeBackgroundMusicState'>
+	</image>
+
+	<image wx:else
+			class='details-background-music'
+			src='../../images/editor/backmusicImage.png'
+			bindtap='changeBackgroundMusicState'>
+	</image>
+</block>
+
+
+<!-- 点击放大图片查看 -->
+<template is="zoom-image" data="{{selectImageUrl}}"/>

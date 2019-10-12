@@ -1,0 +1,8 @@
+.look-image-super-view {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0rpx;
+	left: 0rpx;
+	background-color: black;
+}

@@ -1,0 +1,13 @@
+<!--pages/root/root.wxml-->
+
+<image class='backgroundImage' 
+			src='{{backgroundImage}}'>
+</image>
+
+
+
+<!-- 客服消息 -->
+<button class='customer-service'
+			open-type="contact" 
+			style="background-image: url('https://7363-scan-could-f2ceda-1258327789.tcb.qcloud.la/customerService.png');">
+</button>

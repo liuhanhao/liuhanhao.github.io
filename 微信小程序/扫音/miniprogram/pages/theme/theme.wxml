@@ -1,0 +1,18 @@
+<!--pages/theme/theme.wxml-->
+
+<view class='theme-backgroundImage' 
+			style="background-image: url({{backgroundImage}});">
+</view>
+
+<view class='theme-flex-column'>
+
+	<block wx:for="{{imageUrls}}" wx:key="{{index}}">
+		<block wx:if="{{index == selectIndex}}">
+			<image class='theme-image' src='{{item}}' catchtap='selectImage' data-item='{{item}}' data-index='{{index}}' style='box-shadow: 10px 10px 5px #0c99de;'></image>
+		</block>
+		<block wx:else>
+			<image class='theme-image' src='{{item}}' catchtap='selectImage' data-item='{{item}}' data-index='{{index}}' style='box-shadow: 10px 10px 5px #888888;'></image>
+		</block>
+	</block>
+
+</view>

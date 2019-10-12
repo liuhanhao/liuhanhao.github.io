@@ -1,0 +1,48 @@
+/* pages/mine/mine.wxss */
+
+page {
+	background-color: #f5f5f5;
+
+}
+
+.tips-text {
+	font-size: 35rpx;
+	text-align: center;
+	margin-top: 20rpx;
+	margin-bottom: 20rpx;
+	color: gray;
+}
+
+.white-view {
+	background-color: white;
+}
+
+.label1 {
+	font-size: 35rpx;
+	display: inline-block;
+	margin-top: 30rpx;
+	margin-left: 30rpx;
+}
+
+.label2 {
+	font-size: 35rpx;
+	display: inline-block;
+	margin-top: 30rpx;
+	color: gray;
+	margin-left: 20rpx;
+}
+
+.qrcode-image {
+	margin-top: 50rpx;
+	margin-bottom: 50rpx;
+	width: 400rpx;
+	height: 400rpx;
+
+}
+
+.mine-userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 30rpx;
+  border-radius: 50%;
+}

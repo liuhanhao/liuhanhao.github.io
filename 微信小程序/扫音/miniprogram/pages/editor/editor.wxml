@@ -1,0 +1,140 @@
+<!--pages/editor/editor.wxml-->
+<import src="./zoom-image.wxml"/>
+
+
+<image class='editor-backgroundImage' 
+			src='{{backgroundImageUrl}}'>
+</image>
+
+<!-- 背景音乐 -->
+<block wx:if="{{startPlay}}">
+	<image wx:if="{{isPlayingBackgroundAudio}}"
+			class='editor-background-music'
+			style="animation: background-music 2s linear infinite;"
+			src='../../images/editor/backmusicImage.png'
+			bindtap='changeBackgroundMusicState'>
+	</image>
+
+	<image wx:else
+			class='editor-background-music'
+			src='../../images/editor/backmusicImage.png'
+			bindtap='changeBackgroundMusicState'>
+	</image>
+</block>
+
+
+<block wx:if="{{!selectImageUrl}}">
+<view class='editor-flex-view-row'>
+	<text class='editor-label' decode="true" style='flex:none;'>To:&nbsp;</text>
+	<textarea class="{{ios?'to-textarea-ios':'to-textarea-android'}}" bindinput="toBindinput" auto-height placeholder="请填写收件人" value='{{toName}}' />
+	<picker mode="selector" range="{{musicList}}" value="{{musicIndex}}" range-key="musicName" bindchange="selectBackgroundMusic">
+
+		<view class='editor-flex-view-column' style='flex:none;'>
+			<image src='../../images/editor/selectBackMusicImage.png' class='editor-image'></image>
+			<view style='font-size: 25rpx;'>选择背景音乐</view>
+		</view>
+		
+	</picker>
+
+</view>
+
+<!-- 寄语 -->
+<view class='editor-white-view'>
+	<textarea style='font-size: 35rpx;width:660rpx;line-height: 38rpx;' bindinput="sayTextInput" auto-height placeholder="您想对对方说点什么呢..." value='{{sayText}}'/>
+</view>
+<!-- 文本提示 -->
+<view style='padding: 10rpx 55rpx 0rpx 55rpx;font-size: 25rpx;line-height:25rpx;'>{{tipsText}}</view>
+
+
+<view class='editor-white-view'>
+	<view class='editor-flex-view-row' style='position: relative;'>
+		<!-- 1代表正常状态 -->
+		<block wx:if="{{voiceState==1}}">
+			<image class='editor-record-image' src='../../images/record.png' catchtap='startRecord'></image>
+			<view>
+				<view class='editor-record-label'>{{defaultInfo.label1}}</view>
+				<view class='editor-record-label'>{{defaultInfo.label2}}</view>
+			</view>
+		</block>
+		<!-- 2代表录音状态 -->
+		<block wx:if="{{voiceState==2}}">
+			<image class='editor-record-image' src='../../images/voice_icon_speech_sound_{{speakingPicIndex}}.png' catchtap='endRecord'></image>
+			<view>
+				<view class='editor-record-label'>{{recordInfo.label1}}</view>
+				<view class='editor-record-label'>{{recordInfo.label2}}</view>
+			</view>
+		</block>
+		<!-- 3代表可以播放状态 -->
+		<block wx:if="{{voiceState==3}}">
+			<image class='editor-record-image' src='../../images/play.png' catchtap='playRecord'></image>
+			<view>
+				<view class='editor-record-label'>{{playInfo.label1}}</view>
+				<view class='editor-record-label'>{{playInfo.label2}}</view>
+			</view>
+			<button class='editor-delete-button' type="warn" bindtap='deleteRecord'>删除</button>
+
+		</block>
+		<!-- 4代表正在播放 -->
+		<block wx:if="{{voiceState==4}}">
+			<image class='editor-record-image' src='../../images/stop.png' catchtap='stopRecord'></image>
+			<view>
+				<view class='editor-record-label'>{{playingInfo.label1}}</view>
+				<view class='editor-record-label'>{{playingInfo.label2}}</view>
+			</view>
+		</block>
+
+	</view>
+
+</view>
+
+<!-- 插入多媒体 -->
+<view class='editor-white-view-media'>
+
+	<block wx:for="{{photos}}" wx:key="{{index}}">
+		<image src='{{item.fileLocalPath}}' style='width: 260rpx;height: 350rpx;margin: 20rpx 0rpx;position: relative;' catchtap='imageClickEvent' data-photo='{{item}}'>
+				<image class='editor-delete-image ' src='../../images/editor/delete.png' catchtap='deleteImage' data-index='{{index}}'></image>
+		</image>
+	</block>
+	
+	<video wx:if="{{video}}" src='{{video.fileLocalPath}}'
+	style='width: {{video.width}}rpx;height: {{video.height}}rpx;margin: 20rpx 0rpx;'
+	>
+		<cover-image class='editor-delete-image' src='../../images/editor/delete.png' 	bindtap='deleteVideo'></cover-image>
+	</video>
+			
+
+	<view style='text-align: center;' catchtap='addFileAction'>
+		<image style='width:260rpx;height:195rpx;' src='../../images/editor/broken-image.png'></image>
+		<view style='font-size: 25rpx;'>点击插入多媒体</view>
+	</view>
+	
+</view>
+
+<view class='editor-flex-view-row'>
+	<text class='editor-label' decode="true" style='flex:none;'>From:&nbsp;</text>
+	<textarea class="{{ios?'to-textarea-ios':'to-textarea-android'}}" bindinput="formBindinput" auto-height placeholder="请填写发件人" value='{{fromName}}'/>
+</view>
+<view class='editor-flex-view-row'>
+	<view class='editor-label' style='flex:none;'>发件位置:</view>
+	<image style='width: 60rpx;height: 60rpx;margin-top: 20rpx;margin-left: 5rpx;' 				src='../../images/location.png' 
+	catchtap='getCurrentLocation'></image>
+	<textarea class="{{ios?'to-textarea-ios':'to-textarea-android'}}" value='{{address}}' bindinput="addressBindinput" auto-height placeholder="请填写当前位置" />
+</view>
+<view class='editor-flex-view-row'>
+	<text class='editor-label' decode="true" style='flex:none;'>发件日期:&nbsp;</text>
+	<textarea class="{{ios?'to-textarea-ios':'to-textarea-android'}}" bindinput="formDateBindinput" auto-height placeholder="请填写日期" value='{{fromDate}}'/>
+</view>
+
+
+<!-- 底部按钮 -->
+<view class='editor-flex-view-row' style='justify-content: space-around;margin-top: 80rpx;width:100%'>
+	<button class='editor-button' catchtap='previewAction'>预览</button>
+	<button class='editor-button' catchtap='saveAction'>保存</button>
+</view>
+
+<!-- 底部留50的空白 -->
+<view style='height: 50rpx;'></view>
+</block>
+
+<!-- 查看放大的图片 -->
+<template is="zoom-image" data="{{selectImageUrl}}"/>

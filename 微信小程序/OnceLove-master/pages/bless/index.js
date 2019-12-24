@@ -1,6 +1,8 @@
 // pages/bless/index.js
 
 const app = getApp()
+
+
 var server = app.globalData.server;
 var appid = app.globalData.appid;
 Page({
@@ -22,7 +24,6 @@ Page({
     onLoad: function(options) {
         var that = this
 
-
         let userInfo = wx.getStorageSync('userInfo')
         if (userInfo) {
             this.setData({
@@ -30,12 +31,13 @@ Page({
             })
         }
 
-
-
         wx.showLoading({ //期间为了显示效果可以添加一个过度的弹出框提示“加载中”  
             title: '加载中',
             icon: 'loading',
         });
+
+
+
         wx.request({
             url: server,
             method: 'GET',
@@ -142,8 +144,8 @@ Page({
         var that = this;
         //console.log(that.data);
         return {
-            title: that.data.mainInfo.share,
-            imageUrl: that.data.mainInfo.thumb,
+            title: app.globalData.mainInfo.share,
+            imageUrl: app.globalData.mainInfo.thumb,
             path: 'pages/index/index',
             success: function(res) {
                 wx.showToast({

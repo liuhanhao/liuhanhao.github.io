@@ -1,0 +1,14 @@
+{
+  "applinks": {
+    "apps": [
+    ],
+    "details": [
+      {
+        "paths": [
+          "*"
+        ],
+        "appID": "8EDD6KAQ5R.com.generalcomp.test1"
+      }
+    ]
+  }
+}

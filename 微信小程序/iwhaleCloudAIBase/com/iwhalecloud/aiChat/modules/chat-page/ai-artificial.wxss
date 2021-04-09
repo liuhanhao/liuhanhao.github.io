@@ -1,0 +1,53 @@
+.artificial-backgroundview {
+	display: flex;
+	/* vertical-align: top; */
+	align-items: center;
+	flex-direction: column;
+	margin-left: 80rpx;
+}
+.artificial-white {
+	width: 400rpx;
+	background-color: white;
+	border-radius: 20rpx;
+	margin-top: -40rpx;
+	/* 1.在用z-index的时候，该元素没有定位（static定位除外）
+		 2.在有定位的情况下，该元素的z-index没有生效，是因为该元素的子元素后来居上，盖住了该元素，解决方式：将盖住该元素的子元素的z-index设置为负数 */
+	z-index: -1;
+}
+
+.artificial-icon-image {
+	width:80rpx;
+	height:80rpx;
+	flex: none;
+}
+
+.artificial-gray-text {
+	text-align: center;
+	color: gray;
+	display: block;
+	font-size: 28rpx;
+	margin-top: 60rpx;
+}
+
+.artificial-black-text {
+	text-align: center;
+	color: black;
+	display: block;
+	font-size: 28rpx;
+	margin-top: 10rpx;
+}
+
+.artificial-blue-text {
+	color: #0c99de;
+	text-align: center;
+	font-size: 28rpx;
+	padding: 10rpx;
+	margin-left: 50rpx;
+	margin-right: 50rpx;
+	margin-top: 20rpx;
+	margin-bottom: 30rpx;
+	border-radius: 5rpx;
+	border-color:  #0c99de;
+	border-width: 2rpx;
+	border-style: solid;
+}

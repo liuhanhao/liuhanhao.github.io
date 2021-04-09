@@ -1,0 +1,44 @@
+/* .big-scrollview {
+	height: 350rpx;
+	white-space: nowrap;
+}
+
+.hot-background-view {
+	display:inline-block;
+	height: 350rpx;
+	width: 500rpx;
+}
+
+.hot-view {
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: row;
+	background-color: white;
+	border-radius: 20rpx;
+	
+}
+
+.hot-image {
+	margin-left: 20rpx;
+	margin-top: 30rpx;
+	height: 290rpx;
+	width: 180rpx;
+}
+
+.small-scrollview {
+	height: 350rpx;
+	display: flex;
+}
+
+.hot-cell {
+	 /* 让view 自动换行 */
+	/*white-space: pre-wrap;
+	padding: 25rpx 0rpx 25rpx 20rpx;
+	font-size: 36rpx;
+	width: 320rpx;
+}
+.line {
+	background-color: lightgray;
+	height: 3rpx;
+	margin-left: 20rpx;
+} */

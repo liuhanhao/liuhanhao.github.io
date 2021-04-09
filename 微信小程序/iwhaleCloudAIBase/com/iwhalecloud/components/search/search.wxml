@@ -1,0 +1,10 @@
+<view class='main'>
+  <view class='textField' style='width:{{searchbutton==1?"500rpx":"720rpx"}}'>
+    <image class='image' src='../../images/components/search.png'></image>
+    <input class='input' placeholder='{{hint}}' bindinput="bindKeyInput" bindconfirm="searchEvent" value='{{value}}' focus="{{focus}}"></input>
+    <image class='image-delete' wx:if='{{value.length>0}}' bindtap="delete" src='../../images/components/delete.png'></image>
+  </view>
+  <view wx:if="{{searchbutton==1}}" class='searchButton' bindtap="searchAction">
+		<text style='margin-top: 13rpx;'>搜索</text>
+	</view>
+</view>

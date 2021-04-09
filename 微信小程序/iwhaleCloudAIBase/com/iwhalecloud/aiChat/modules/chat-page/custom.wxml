@@ -1,0 +1,4 @@
+<!-- 文本label -->
+<template name="chat-custom">
+    <text class='chat-list-custom-style' style='margin-bottom: {{index===length-1?150:20}}rpx;"'>{{content}}</text>
+</template>

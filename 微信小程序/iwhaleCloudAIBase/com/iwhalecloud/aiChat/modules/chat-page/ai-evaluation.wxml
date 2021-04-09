@@ -1,0 +1,52 @@
+<template name="ai-evaluation">
+	<!-- data : experts -->
+	<view class='evaluation-background-view'>
+
+		<image style='width:120rpx; height:120rpx;' src='../images/components/specialist_avatar.png'></image>
+
+		<view class="evaluation-container" style='z-index: -1;'>
+				
+				<view style='text-align: center;font-size:30rpx;margin-top: 80rpx;'>【在线客服】</view>
+				
+					<view class='evaluation-gray-container'>
+						<!-- 是否显示解决 未解决 -->
+						<view wx:if="{{experts.isShowSolveView}}" class='evaluation-flex-view'>
+							<view style='font-size:30rpx;margin-top:40rpx; margin-right:20rpx;margin-left:20rpx;'>本次问题:</view>
+							<radio-group class="group" bindchange="radioChange" data-index="{{index}}"
+							 style="margin-top:30rpx;">
+								<block wx:for="{{experts.radioItems}}" wx:key="index">
+
+									<radio value="{{item.name}}" checked="{{item.checked}}" style="transform:scale(0.7);"></radio>
+									<text style="font-size:30rpx">{{item.value}}</text>
+
+								</block>
+							</radio-group>
+						</view>
+						
+						<view class='evaluation-flex-view'>
+							<block wx:if="{{experts.isSolve==true}}">
+								<view style='font-size:30rpx;margin-top:40rpx; margin-right:20rpx;margin-left:20rpx;'>服务评价:</view>
+
+								<image src="{{experts.rateNum>0?'../images/components/ic_rate_solid.png':'../images/components/ic_rate_stroke.png'}}" class="evaluation-starRate" bindtap="rateClick" data-rate-num="1" data-index="{{index}}"/>
+								<image src="{{experts.rateNum>1?'../images/components/ic_rate_solid.png':'../images/components/ic_rate_stroke.png'}}" class="evaluation-starRate" bindtap="rateClick" data-rate-num="2" data-index="{{index}}"/>
+								<image src="{{experts.rateNum>2?'../images/components/ic_rate_solid.png':'../images/components/ic_rate_stroke.png'}}" class="evaluation-starRate" bindtap="rateClick" data-rate-num="3" data-index="{{index}}"/>
+								<image src="{{experts.rateNum>3?'../images/components/ic_rate_solid.png':'../images/components/ic_rate_stroke.png'}}" class="evaluation-starRate" bindtap="rateClick" data-rate-num="4" data-index="{{index}}"/>
+								<image src="{{experts.rateNum>4?'../images/components/ic_rate_solid.png':'../images/components/ic_rate_stroke.png'}}" class="evaluation-starRate" bindtap="rateClick" data-rate-num="5" data-index="{{index}}"/>
+								
+							</block>
+							
+							<block wx:else>
+								<view style='font-size:30rpx;margin-top:20rpx; margin-right:20rpx;margin-left:20rpx;'>不满意原因:</view>
+									<view class='evaluation-btn1' bindtap='popoverListClick' data-index='{{index}}'>
+								{{experts.satisfiedContent}}
+									<image class='evaluation-iconimage' 		                  					 src="../images/personaltalk/arrow_down.png"></image>
+								</view>
+							</block>
+						</view>
+					</view>
+
+				<button class='evaluation-submitButton' bindtap="submitEvaluation" data-index="{{index}}">提交评价</button>
+		</view>
+	
+	</view>
+</template>

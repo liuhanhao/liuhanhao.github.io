@@ -1,0 +1,43 @@
+<template name="ai-experts-select">
+    
+		<!-- data: experts -->
+
+		<view class='experts-background-view'>
+		
+			<view class='experts-view'>
+				<image class='experts-image' src='../images/ai/ic_special_tips.png'></image>
+
+				<scroll-view class='experts-small-scrollview'
+										scroll-y="true">
+							
+					<block wx:key='index' wx:for="{{experts}}">
+					<view catchtap='selectExpert' data-expert='{{item}}'>
+						<image class='experts-icon-image' style='margin-left: 0rpx;margin-right: 3rpx;'
+									src='../images/ai/ic_specialor.png'></image>
+						<view style='display: inline-block;'>
+							<view class='experts-hot-cell' style="font-size: 30rpx;margin-top: 5rpx;">{{item.staffName}}</view>
+
+							<!-- 星星控件 item.starRate-->
+							<image src="{{item.rateNum>0?'../images/components/ic_rate_solid.png':'../images/components/ic_rate_stroke.png'}}" class="experts-starRate" style="width: 25rpx;height: 25rpx;"/>
+							<image src="{{itemrateNum>1?'../images/components/ic_rate_solid.png':'../images/components/ic_rate_stroke.png'}}" class="experts-starRate" style="width: 25rpx;height: 25rpx;"/>
+							<image src="{{item.rateNum>2?'../images/components/ic_rate_solid.png':'../images/components/ic_rate_stroke.png'}}" class="experts-starRate" style="width: 25rpx;height: 25rpx;"/>
+							<image src="{{item.rateNum>3?'../images/components/ic_rate_solid.png':'../images/components/ic_rate_stroke.png'}}" class="experts-starRate" style="width: 25rpx;height: 25rpx;"/>
+							<image src="{{item.rateNum>4?'../images/components/ic_rate_solid.png':'../images/components/ic_rate_stroke.png'}}" class="experts-starRate" style="width: 25rpx;height: 25rpx;"/>
+
+							<view class='experts-hot-cell' style='font-size: 25rpx;color: gray;display: block;line-height:25rpx;'>{{item.groupName}}</view>
+						</view>
+
+						<view class='line'></view>
+					</view>
+					</block>
+					
+				</scroll-view>
+
+			</view>
+
+			<view class='experts-automatic-button' catchtap='automaticAssignmentExpert' data-experts='experts'>点击此处,会自动分配专家哦</view>
+			<view class='experts-more-button' catchtap='loadAllExpert' data-experts='experts'>查看全部</view>
+
+		</view>
+
+</template>

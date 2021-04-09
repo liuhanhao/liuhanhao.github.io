@@ -1,0 +1,53 @@
+<import src="../aiChat/modules/chat-page/chat-item.wxml"/>
+
+<view class='head-background-view'>
+
+	<picker mode="date" value="{{date}}" start="{{start}}" end="{{end}}" bindchange="startDateChange" style='width:50%;'>
+
+		<view class='date-background-view'>
+			<view class='date-view'>
+				<view class='record-time-text'>{{startTime}}</view>
+				<image class='record-time-image' src='../images/ai/calendar.png'></image>
+			</view>
+		</view>
+		
+	</picker>
+
+	<view class='zhi-label'>至</view>
+
+	<picker mode="date" value="{{date}}" start="{{start}}" end="{{end}}"  bindchange="endDateChange" style='width:50%;'>
+		
+			<view class='date-background-view'>
+				<view class='date-view'>
+					<view class='record-time-text'>{{endTime}}</view>
+					<image class='record-time-image' src='../images/ai/calendar.png'></image>
+				</view>
+			</view>
+		
+	</picker>
+
+</view>
+
+<view style='background-color: white;'>
+	<view class="search-view" style='margin-left: 20rpx;margin-bottom: 20rpx;'>
+      <search hint="请输入关键字" searchbutton="1" bind:searchEvent="searchEvent"/>
+	</view>
+</view>
+
+
+
+<!-- 消息框 -->
+<scroll-view
+				style="height:{{scrollViewHeight}}rpx;width: 100%;display: flex;flex-direction: column;background-color: #eaeaea;"
+        scroll-y="true"
+        scroll-top="{{scrollTopVal}}"
+				bindscroll="scroll"
+				bindscrolltolower="bindDownLoad"
+				bindscrolltoupper="refresh">
+
+    <block wx:for="{{chatItems}}" wx:key="{{index}}">
+        <template is="chat-item"
+                  data="{{length:chatItems.length,index:index,item:item}}"/>
+    </block>
+
+</scroll-view>

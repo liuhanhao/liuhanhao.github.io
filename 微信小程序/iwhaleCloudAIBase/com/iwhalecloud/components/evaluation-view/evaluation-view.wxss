@@ -1,0 +1,79 @@
+/* 评价 */
+.appriase-dialog__mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.4);
+  display: none;
+}
+
+.appriase-dialog__container {
+  position: fixed;
+  bottom: 0rpx;
+  right: 0;
+  left: 0;
+  height: 600rpx;
+  background: #f8f8f8;
+  transform: translateY(300%);
+  transition: all 0.4s ease;
+  z-index: 12;
+  border-radius: 20rpx;
+  box-shadow: 0px 3px 3px 2px gainsboro;
+}
+
+.appriase-dialog--show .appriase-dialog__container {
+  transform: translateY(0);
+}
+
+.appriase-dialog--show .appriase-dialog__mask {
+  display: block;
+}
+
+.item-name {
+	font-size: 35rpx;
+	color: gray;
+}
+
+.starRate{
+  width: 50rpx;
+  height: 50rpx;
+  margin: 15rpx;
+}
+.submitButton{
+	color: white;
+	background-color: #0B99DE;
+	border-radius: 6rpx;
+	margin: 20rpx 5%;
+	text-align: center;
+	width: 90%;
+	position: absolute;
+	bottom: 0px;
+	height:65rpx;
+	font-size: 15px;
+	line-height:65rpx;
+} 
+
+.btn1 {
+	margin-top: 13rpx;
+  margin-left: 40rpx;
+  width: 480rpx;
+  height: 70rpx;
+  border: 1rpx solid #1e96f7; 
+  border-radius: 10rpx;  
+  background-color: #f5f9fd;
+	text-align: left;
+	line-height: 70rpx;
+	padding-left: 10rpx;
+	font-size: 35rpx;
+	color: black;
+}
+.iconimage{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 10rpx;
+  margin-top: 15rpx;
+  float: right;
+}

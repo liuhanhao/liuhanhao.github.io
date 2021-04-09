@@ -1,0 +1,50 @@
+<import src="../aiChat/modules/chat-input/chat-input.wxml"/>
+<import src="../aiChat/modules/chat-page/chat-item.wxml"/>
+<import src="../aiChat/modules/chat-page/chat-page-status.wxml"/>
+<import src="../aiChat/modules/chat-page/ai-experts-list.wxml"/>
+
+<!-- socket连接状态 -->
+<template is="chat-page-status" data="{{chatStatue,chatStatusContent}}"/>
+
+<!-- 消息框 background-color: yellow;-->
+<scroll-view
+        style="width: 100%;height:{{scrollViewHeight-(chatStatue==='open'? 70:0)}}rpx;display: flex;flex-direction: column;margin-top: {{chatStatue==='open'?'70rpx':'0rpx'}};"
+        scroll-y="true"
+        scroll-top="{{scrollTopVal}}"
+				bindscroll="scroll"
+				bindscrolltolower="bindDownLoad"
+				bindscrolltoupper="refresh"
+        bindtap="resetInputStatus">
+
+    <block wx:for="{{chatItems}}" wx:key="{{index}}">
+        <template is="chat-item"
+                  data="{{length:chatItems.length,index:index,item:item}}"/>
+    </block>
+
+</scroll-view>
+
+<!-- 点击去到讨论组详情 -->
+<block wx:if="{{isAI==false}}">
+	<view class="ai-ic-specialor" bindtap="gotoGroupInformationView">
+		<image src="../images/ai/groupMember.png" style="width: 60rpx;height: 60rpx;margin-left: 20rpx;margin-top: 25rpx;display: block"></image>
+	</view>
+</block>
+
+<!-- 智能按键 -->
+<scroll-view wx:if="{{smartButtons.length>0}}" 
+						 scroll-x="true" 
+						 class='smart-button-scrollview'>
+
+	<view class='smart-button' wx:for="{{smartButtons}}" wx:key="{{index}}" catchtap='smartButtonAction' data-item='{{item}}' style='margin-right: {{index==smartButtons.length-1 ? "25rpx":"0rpx"}};'>
+		<text class='smart-text'>{{item.buttonName}}</text>
+	</view>
+	
+</scroll-view>
+
+<!-- 输入框 -->
+<template is="chat-input" data="{{inputObj:inputObj,textMessage:textMessage,showVoicePart:true}}" />
+
+
+<!-- 专家选择弹出窗口 -->
+<template is="ai-experts-list" data="{{showExpertsList:showExpertsList,experts:expertsList}}" />
+

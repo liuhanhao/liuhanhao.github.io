@@ -1,0 +1,97 @@
+<!-- 顶部的详情 -->
+<view style='background-color: white;'>
+	<view class='title-view'>
+		<image class='title-image' src='{{avatarIcon}}'></image>
+		<text class='title-text'>{{workOrderDetails.orderTitle}}</text>
+	</view>
+
+	<view class='line-view'></view>
+
+	<view class='title-sub-text' style='color: #0a99df;'>历时:{{workOrderDetails.duration}}</view>
+	<view class='title-sub-text'>问题类型:{{workOrderDetails.spTypeName}}</view>
+	<view class='title-sub-text'>发起时间:{{workOrderDetails.createDate}}</view>
+	<view class='title-sub-text'>负责人:{{workOrderDetails.createStaffName}}{{workOrderDetails.mobileTel}}
+		<image class="phoneimage" src="../images/personaltalk/telephone.png" bindtap="callPhone" data-phone='{{workOrderDetails.mobileTel}}'/>
+	</view>
+	
+
+	<view class='title-view'>
+		<view class='title-sub-text' style='flex: none;margin-bottom: 30rpx;'>关联会话:</view>
+		<view wx:for="{{workOrderDetails.imGroupList}}" wx:key="{{index}}">
+			<view class='title-sub-text' style='display: inline-block;color: #0a99df;' bindtap='selectGroup' data-item='{{item}}'>{{item.groupName}}</view>
+		</view>
+	</view>
+
+</view>
+
+<!-- 中间的图片 -->
+<view style='background-color: white;margin-top: 30rpx;'>
+	<text class='title-text' style='line-height:50rpx;'>附件</text>
+	<image class='jiantou-image' src='{{jiantouImage}}' bindtap='showFujian'></image>
+
+	<block wx:if="{{isShowFujian}}">
+		<view wx:for="{{imageArray}}" wx:key="{{index}}">
+			<image style='display: inline-block;' class='fujian-image' src='{{item}}' bindtap='imageClickEvent' data-url='{{item}}'></image>
+		</view>
+	</block>
+
+</view>
+
+<!-- 列表 -->
+<view style='background-color: white;margin-top: 30rpx;'>
+	<view style='background-color: white;height: 30rpx;'>
+		<view class='table-line' style='margin-left: 227rpx;'></view>
+	</view>
+
+	<block wx:for="{{operTrackArray}}" wx:key="{{index}}">
+		<view class='title-view'>
+			<!-- 时间view -->
+			<view style='width:180rpx;flex:none;'>
+				<view class='table-time-text' style='background-color: #b1b1b1;margin-left: 10rpx;'>{{item.year}}</view>
+				<view class='table-time-text'>{{item.month_day}}</view>
+				<view class='table-time-text' style='clear:both;'>{{item.time}}</view>
+			</view>
+
+			<!-- 中间的分割线-->
+			<view style='width:100rpx;flex:none;position: relative;'>
+				<view class='table-line'></view>
+
+				<block wx:if="{{item.type == 1}}">
+					<image class='table-image' src='../images/support/dealing_status.png'></image>
+				</block>
+				<block wx:if="{{item.type == 2}}">
+					<view class='table-point '></view>
+				</block>
+				<block wx:if="{{item.type == 3}}">
+					<image class='table-image' src='../images/support/supprt_complete.png'></image>
+				</block>
+
+			</view>
+
+			<!-- 内容 -->
+			<view>
+				<view class='table-title-text'>{{item.operTypeName}}</view>
+				<view class='table-content-text' style='margin-bottom: 40rpx;'>{{item.contentStr}}</view>
+			</view>
+		</view>
+	</block>
+
+</view>
+
+
+<!-- 我要反馈视图 -->
+<block wx:if="{{personWorkState=='10I'}}">
+	<view class="fankui-button" bindtap="feekBackAction">
+		<text style='margin-top: 10rpx;margin-left: 25rpx;display: block;'>我要</text>
+		<text style='margin-top: 0rpx;margin-left: 25rpx;display: block;'>反馈</text>
+	</view>
+
+	<feedback-view bind:hideFeedbackView="hideFeedbackView"
+								isShow="{{isShowFeedback}}"
+								order="{{order}}"
+								success="{{success}}"> 
+	</feedback-view>
+
+</block>
+
+        

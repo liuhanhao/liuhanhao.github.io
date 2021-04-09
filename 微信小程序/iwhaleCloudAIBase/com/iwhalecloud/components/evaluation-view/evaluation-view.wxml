@@ -1,0 +1,47 @@
+<view class="appriase-dialog {{ isShow ? 'appriase-dialog--show' : '' }}">
+  <view class="appriase-dialog__mask" bindtap="hideEvaluationView" />
+  <view class="appriase-dialog__container">
+    <view style='display:flex;flex-direction: row;padding: 15rpx;border-bottom: solid 1rpx #cccccc;'>
+      <text class="item-name" style=' flex: 1;'>服务评价</text>
+      <image bindtap="hideEvaluationView" style='width:40rpx; height:40rpx;' src='../../images/components/alert-close-icon.png'></image>
+
+    </view>
+    <view style='text-align: center;'>
+      <image style='width:120rpx; height:120rpx; margin: 10rpx 0px 5rpx;' src='../../images/components/specialist_avatar.png'></image>
+    </view>
+    <view style='text-align: center;font-size:30rpx;'>【在线客服】</view>
+    
+      <radio-group wx:if="{{isShowSolveView}}" class="group" bindchange="radioChange" style="display:flex;">
+        <view style='font-size:30rpx;margin-top:3px; margin-right:20rpx;margin-left:10rpx;'>
+            本次问题:
+          </view>
+        <view wx:for="{{radioItems}}" wx:key="" style='flex:1;font-size:13px;display:flex;align-items:center;'>
+          <radio value="{{item.name}}" checked="{{item.checked}}" style="transform:scale(0.8);"></radio>
+          <text>{{item.value}}</text>
+        </view>
+      </radio-group>
+
+      <view wx:if="{{isSolve==true}}" style='margin-top:20rpx; display:flex;'>
+        <view style='font-size:30rpx; margin-right:20rpx;margin-top:18rpx;margin-left:10rpx;'>
+            服务评价:
+        </view>
+        <image src="{{rateNum>0?'../../images/components/ic_rate_solid.png':'../../images/components/ic_rate_stroke.png'}}" class="starRate" bindtap="rateClick" data-index="1" />
+        <image src="{{rateNum>1?'../../images/components/ic_rate_solid.png':'../../images/components/ic_rate_stroke.png'}}" class="starRate" bindtap="rateClick" data-index="2"/>
+        <image src="{{rateNum>2?'../../images/components/ic_rate_solid.png':'../../images/components/ic_rate_stroke.png'}}" class="starRate" bindtap="rateClick" data-index="3"/>
+        <image src="{{rateNum>3?'../../images/components/ic_rate_solid.png':'../../images/components/ic_rate_stroke.png'}}" class="starRate" bindtap="rateClick" data-index="4"/>
+        <image src="{{rateNum>4?'../../images/components/ic_rate_solid.png':'../../images/components/ic_rate_stroke.png'}}" class="starRate" bindtap="rateClick" data-index="5"/>
+      </view>
+
+			<view wx:else style='margin-top:20rpx; display:flex;'>
+				<view style='font-size:30rpx;margin-top:3px; margin-right:20rpx;margin-left:10rpx;'>
+            不满意原因:
+        </view>
+				<view class='btn1' bindtap='popoverListClick'>
+					{{satisfiedContent}}
+					<image class='iconimage' src="../../images/personaltalk/arrow_down.png"></image>
+				</view>
+			</view>
+
+     <button class='submitButton'  bindtap="submitButtonAction" data-index="{{index}}">提交评价</button>
+  </view>
+</view>

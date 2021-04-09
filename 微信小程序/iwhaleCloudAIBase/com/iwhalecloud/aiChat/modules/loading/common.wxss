@@ -1,0 +1,9 @@
+.chat-loading-common{
+    width:40rpx;
+    height:40rpx;
+}
+
+.chat-loading-common-big {
+		width:70rpx;
+  	height:70rpx;
+}

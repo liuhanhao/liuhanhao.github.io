@@ -1,0 +1,35 @@
+<template name="ai-hot-questions">
+		
+    <scroll-view class='big-scrollview'
+								 scroll-x="true">
+						
+				<view class='hot-view'>
+					<image class='hot-image' src='../images/ai/ic_hot_tips.png'></image>
+
+					<scroll-view class='small-scrollview'
+											scroll-y="true">
+						
+						<block wx:key='index' wx:for="{{questions.hotQuestion}}" wx:for-item="item">
+							<view class='hot-cell' catchtap='tapHotQuestionsItem' data-question='{{item}}'>{{item.questionName}}</view>
+							<view class='line'></view>
+						</block>
+
+					</scroll-view>
+
+				</view>
+				
+				<block wx:key='index' wx:for="{{questions.otherQuestion}}" wx:for-item="item">
+					<view class='question-item' catchtap='tapHotQuestionsItem' data-question='{{item}}' style='margin-right: {{index==questions.otherQuestion.length-1 ? "20rpx":"0rpx"}};'>
+							<view style='display: flex;flex-direction: column;align-items: center;'>
+								<image style='width:120rpx;height:120rpx;margin-top: 60rpx;'
+										src='{{item.questionAvatar}}'></image>
+								<text class='question-item-text'>{{item.questionName}}</text>
+								<text class='question-item-text1'>"7x24小时客服"</text>
+							</view>
+							
+					</view>
+				</block>
+
+		</scroll-view>
+		
+</template>

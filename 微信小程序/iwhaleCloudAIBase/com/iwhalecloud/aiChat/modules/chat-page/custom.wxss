@@ -1,0 +1,11 @@
+.chat-list-custom-style {
+  margin-top: 30rpx;
+  background-color: gray;
+  color: white;
+  padding: 8rpx 10rpx 6rpx 10rpx;
+  border-radius: 6rpx;
+  width: auto;
+  font-size: 30rpx;
+  line-height: 30rpx;
+  text-align: center;
+}

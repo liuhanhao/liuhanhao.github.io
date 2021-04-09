@@ -1,0 +1,111 @@
+page {
+	background-color: #eaeaea;
+}
+
+.title-view {
+	display: flex;
+	flex-direction: row;
+}
+.title-image {
+	width: 80rpx;
+	height: 80rpx;
+	margin-left: 10rpx;
+	margin-top: 20rpx;
+	flex: none;
+}
+.title-text {
+	font-size: 35rpx;
+	margin-left: 10rpx;
+	margin-right: 10rpx;
+	margin-top: 18rpx;
+}
+.line-view {
+	background-color: lightgray;
+	height: 2rpx;
+	margin-top: 10rpx;
+	margin-left: 10rpx;
+	margin-right: 10rpx;
+	
+}
+
+.title-sub-text {
+	color: gray;
+	font-size: 32rpx;
+	margin-top: 20rpx;
+	margin-left: 20rpx;
+	margin-right: 20rpx;
+	
+}
+
+.jiantou-image {
+	width: 45rpx;
+	height: 30rpx;
+	margin-right: 30rpx;
+	float: right;
+	margin-top: 17rpx;
+}
+.fujian-image {
+	width: 150rpx;
+	height: 250rpx;
+	margin: 20rpx;
+}
+
+
+.table-time-text {
+	font-size: 27rpx;
+	float: right;
+	
+	/* background-color: ; */
+}
+.table-title-text {
+	font-size: 33rpx;
+}
+.table-content-text {
+	font-size: 33rpx;
+	color: #b1b1b1;
+}
+
+.table-line {
+	width: 6rpx;
+	height: 100%;
+	position: absolute;
+	background-color: #b1b1b1;
+	margin-left: 47rpx;
+}
+.table-image {
+	width: 56rpx;
+	height: 56rpx;
+	position: absolute;
+	margin-left: 22rpx;
+}
+
+.table-point {
+	width: 22rpx;
+	height: 22rpx;
+	border-radius: 10rpx;
+	background-color: #b1b1b1;
+	position: absolute;
+	margin-left: 39rpx;
+}
+
+
+.fankui-button {
+	position: fixed;
+  width: 120rpx;
+  height: 120rpx;
+  right: 40rpx;
+  bottom: 40rpx;
+  background-color: rgb(25,155,220);
+  z-index: 8!important;
+  border-radius: 60rpx;
+	color: white;
+	font-size: 35rpx;
+	opacity: 0.7;
+}
+
+.phoneimage {
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 210rpx;
+  float: right;
+}

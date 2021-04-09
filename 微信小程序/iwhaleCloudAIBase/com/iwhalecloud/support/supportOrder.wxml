@@ -1,0 +1,76 @@
+<view>
+  <view id="topView">
+    <view class='tabbar'>
+      <block wx:for="{{list}}" wx:key="item">
+        <view class='tabbar-item' data-name='{{item.name}}' bindtap='switchPage'>
+          <text class='item-text' style='color:{{item.name===selectName?"#0a99df":"#333"}}'>{{item.name}}</text>
+          <text class='item-text' style='color:{{item.name===selectName?"#0a99df":"#333"}}'></text>
+        </view>
+      </block>
+    </view>
+
+		<view class='item-line-view' style='margin-left: {{lineMarginLeft}}'></view>
+
+    <view class="search-view">
+      <search hint="支撑单主题、问题类型" searchbutton="1" bind:searchEvent="searchEvent"/>
+    </view>
+  </view>
+  <view></view>
+  <scroll-view scroll-top="{{scrollTop}}" class='scroll-view' scroll-y style="height: {{scrollViewHeight}}px">
+    <block wx:key='index' wx:for="{{dataList}}" wx:for-item="item">
+      <view class="item" bindtap="detailsDataView" data-item="{{item}}">
+
+        <!-- 直线 -->
+        <view style='background-color: #eee;height:2px;'></view>
+
+        <view class='itemTopTitleView'>
+          <image class='itemIconImage' src='{{item.avatarTmp}}'></image>
+          <text class='itemTitle'>{{item.orderTitle}}</text>
+        </view>
+
+        <!-- 直线 -->
+        <view style='background-color: #eee;height:1px;margin-left: 20rpx;margin-right: 20rpx;'></view>
+
+        <view class='itemTitleView'>
+          <text class='itemLeftText'>问题类型:</text>
+          <text class='itemRightText'>{{item.spTypeName}}</text>
+        </view>
+
+        <view class='itemTitleView'>
+          <text class='itemLeftText'>发起时间:</text>
+          <text class='itemRightText'>{{item.createDate}}</text>
+        </view>
+
+        <view class='threeItemTitleView'>
+          <view class='threeItemTopView'>
+            <text class='itemLeftText'>负责人:</text>
+            <text class='itemRightText'>{{item.createStaffName}}{{item.mobileTel}}</text>
+          </view>
+          <view>
+            <image class='phoneImage' src='../images/personaltalk/ai_phone_call.png' catchtap="callPhone" data-item="{{item}}"></image>
+          </view>
+        </view>
+
+        <view class='itemTitleView'>
+          <text class='spDescLeftText'>最新进展:</text>
+          <text class='spDescRightText'>{{item.spDesc}}</text>
+        </view>
+
+        <!--处理中的才有反馈-->
+        <button wx:if="{{selectName === '处理中'}}" class='feekBackButton' catchtap="feekBackAction" data-item='{{item}}'>我要反馈</button>
+
+      </view>
+    </block>
+
+    <button class='moreButton' bindtap="requestMoreData">{{listBottomText}}</button>
+
+  </scroll-view>
+</view>
+
+
+<!-- 我要反馈视图 -->
+<feedback-view bind:hideFeedbackView="hideFeedbackView"
+							isShow="{{isShowFeedback}}"
+							order="{{order}}"
+							success="{{success}}"> 
+</feedback-view>

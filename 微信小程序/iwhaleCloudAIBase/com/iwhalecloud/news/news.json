@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "消息",
+	"enablePullDownRefresh": true,
+  "usingComponents": {
+		"evaluation-view":"../components/evaluation-view/evaluation-view",
+    "search":"../components/search/search",
+    "leftMoveDelete":"../components/leftMoveDelete/leftMoveDelete"
+  }
+}

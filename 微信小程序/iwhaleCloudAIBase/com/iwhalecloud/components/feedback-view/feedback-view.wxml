@@ -1,0 +1,12 @@
+<view class="appriase-dialog {{ isShow ? 'appriase-dialog--show' : '' }}">
+  <view class="appriase-dialog__mask" bindtap="hideFeedbackView" />
+  <view class="appriase-dialog__container">
+    <view style='display:flex;flex-direction: row;padding: 15rpx;border-bottom: solid 1px #cccccc;'>
+      <text class="item-name" style='flex: 1;'>填写反馈</text>
+      <image bindtap="hideFeedbackView" style='width:40rpx; height:40rpx;' src='../../images/components/alert-close-icon.png'></image>
+    </view>
+    <text class='inputText'>请输入反馈内容:</text>
+    <textarea class='inputClass' value="{{defaultText}}" placeholder="点击输入" bindinput="bindKeyInput"></textarea>
+    <button class='submitButton' bindtap="submitButtonAction">提交</button>
+  </view>
+</view>

@@ -1,0 +1,43 @@
+@import "../aiChat/modules/chat-input/chat-input.wxss";
+@import "../aiChat/modules/chat-page/chat-page-status.wxss";
+@import "../aiChat/modules/chat-page/word.wxss";
+@import "../aiChat/modules/chat-page/ai-experts-list.wxss";
+
+page {
+	background-color: #eaeaea;
+}
+
+/* 智能按键 */
+.smart-button-scrollview {
+	position: fixed;
+	white-space: nowrap; 
+	display: flex;
+	bottom: 120rpx;
+}
+.smart-button {
+	display: inline-block;
+	height: 46rpx;
+	min-width: 150rpx;
+	background-color: white;
+	margin-left: 25rpx;
+	border-radius: 23rpx;
+	text-align: center;
+}
+.smart-text {
+	font-size: 30rpx;
+	color: black;
+	line-height: 46rpx;
+	height: 46rpx;
+}
+
+.ai-ic-specialor {
+	position: fixed;
+  width: 100rpx;
+  height: 100rpx;
+  right: 40rpx;
+  bottom: 170rpx;
+  background-color: white;
+  /* z-index: 8!important; */
+  border-radius: 60rpx;
+	opacity: 0.8;
+}

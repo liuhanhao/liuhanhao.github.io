@@ -1,0 +1,98 @@
+<view>
+    <view id="topView">
+      <view class='tabbar'>
+        <block wx:for="{{list}}" wx:key="item">
+          <view class='tabbar-item' data-name='{{item.name}}' bindtap='switchPage'>
+            <text class='item-text' style='color:{{item.name===selectName?"#0a99df":"#333"}}'>{{item.name}}</text>
+          </view>
+        </block>
+      </view>
+      <view class='itemLine' style='margin-left:{{itemLine===false? "0%":"50%"}};'></view>
+    </view>
+
+		<view class="ic_specialor" bindtap="session">
+			<image src="../images/ai/taolunzu.png" style="width: 60rpx;height: 60rpx;margin-left: 35rpx;margin-top: 35rpx;display: block"></image>
+		</view>
+
+    <view wx:if="{{(personOrderType==1||personOrderType==2)&&showCuidan===true}}" class="cuidanButton" bindtap="cuidan">
+				<image src="../images/personaltalk/order_operation.png" style="width: 60rpx;height: 60rpx;margin-left: 35rpx;margin-top: 30rpx;display: block"></image>
+
+		</view>
+
+    <!-- 基本信息 -->
+    <view wx:if="{{itemLine===false}}">
+      			
+        <view wx:for="{{informationDataArray}}" wx:key="" wx:for-index="idx">
+        <view class="showbackground">
+
+          <image class='iconimage' src="{{item.imageName}}"></image>
+          <label class="icontitle">
+            {{item.title}}
+          </label>
+          
+          <label class="icontitle" style="position: absolute;right: 80rpx;" bindtap="greet" data-index="{{idx}}">{{item.showTitle}}
+          </label>
+          <image src="{{item.showImgName}}" style="width: 40rpx;height: 40rpx;margin-right: 30rpx;margin-top: 25rpx;float: right;" align="center" bindtap="greet" data-index="{{idx}}"/>
+          
+        </view>
+        
+        <view wx:if="{{item.isShow}}">
+          
+          <view wx:for="{{item.contentArray}}" wx:key="" wx:for-index="idx" wx:for-item="lineItem" class="lineStyle">
+          
+            <label class="leftText">{{lineItem.title}}</label>
+
+            <label wx:if="{{lineItem.businessNumber}}" class="rightText" style="color:rgb(29,150,247);" bindtap="goBusinessdetails">{{lineItem.content}}</label>
+            <label wx:else class="rightText">{{lineItem.content}}</label>
+
+          </view>
+
+          <view class="imgList">
+            <view class="imgItem" wx:for="{{item.imgDataArray}}" wx:for-item="img" wx:key="">
+              <image src="{{img.src}}" data-src="{{img.src}}" bindtap="photo" style="width: 50px;height: 70px;"/>
+            </view>
+          </view>
+
+        </view>
+
+        <!-- 留空白 -->
+        <view style='height:25rpx;'></view>
+        </view>
+
+    </view>
+    <!-- 工单轨迹 -->
+    <view wx:else>
+      <view class="garyLine"></view>
+
+      <scroll-view class='scroll-view' scroll-y style="height: {{scrollViewHeight}}px">
+
+        <view wx:for="{{trajectoryDataArray}}" wx:key="" >
+            
+          <view style="position: relative;">
+            <image class="iconNumImage" src="../images/personaltalk/step_circle.png" style="width: 60rpx;height: 60rpx;"/>
+            <label class="iconNumText">{{item.step}}</label>
+            <image class="jiaoImage" src="../images/personaltalk/step_cont_triangle.png" style="width: 50rpx;height: 50rpx;"/>
+          </view>
+          
+          <view class="contentView">
+            <view class="lineView" wx:for="{{item.contentArray}}" wx:key="" wx:for-item="lineItem">
+            <label class="leftValue">{{lineItem.title}}</label>	
+
+            <image wx:if="{{lineItem.isPhone}}" class="phoneimage" src="../images/personaltalk/telephone.png" bindtap="callPhone" data-phone='{{lineItem.content}}'/>
+
+            <label wx:if="{{lineItem.isPhone}}" bindtap="callPhone" data-phone='{{lineItem.content}}' style="color: rgb(29,150,247);" class="rightValue">{{lineItem.content}}</label>
+            <label wx:else class="rightValue">{{lineItem.content}}</label> 
+
+            </view>
+          </view>
+                  
+        </view>
+        
+      <!-- 留空白 -->
+      <view style='height:25rpx;'></view>
+
+      </scroll-view>
+
+    </view>
+
+</view>

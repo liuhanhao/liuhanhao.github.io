@@ -1,0 +1,8 @@
+<view class="item-box">
+  <view class="item" style='height:{{height}}'>
+    <view id="viewSlot" bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" style="{{data.txtStyle}}" class="inner txt">
+      <slot></slot>
+    </view>
+    <view bindtap = "delItem" class="inner del" style='line-height:{{height}}'>删除</view>
+  </view>
+</view>

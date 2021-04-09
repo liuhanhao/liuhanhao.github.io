@@ -1,0 +1,21 @@
+<template name="ai-hot-sub-questions">
+    
+	<view class='questions-background-view'>
+
+		<image style='width:60rpx;height:60rpx;margin-top:20rpx;display:inline-block;margin-left:20rpx;float: left;'
+									 src='{{questions.questionAvatar}}'></image>
+		<text class='questions-title'>{{questions.questionName}}</text>						 
+
+		<block wx:key='index' wx:for="{{questions.subQuestions}}" wx:for-item="item">
+			<view class='questions-item-view' catchtap='tapHotQuestionsItem' data-question='{{item}}'>
+				<text class='questions-point-view'>·</text>
+				<text class='questions-text-item'>{{item.questionName}}</text>
+				
+			</view>
+		</block>
+
+		<view class='questions-more' catchtap='tapSubQuestionsLoadMore' data-index='{{index}}' data-questions='{{questions}}'>点击加载更多</view>
+
+	</view>
+
+</template>

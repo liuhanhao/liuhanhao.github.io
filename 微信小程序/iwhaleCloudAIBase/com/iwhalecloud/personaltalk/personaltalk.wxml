@@ -1,0 +1,73 @@
+<view>
+  <view id="topView">
+    <view class='tabbar'>
+      <block wx:for="{{list}}" wx:key="item">
+        <view class='tabbar-item' data-name='{{item.name}}' bindtap='switchPage'>
+          <text class='item-text' style='color:{{item.name===selectName?"#0a99df":"#333"}}'>{{item.name}}</text>
+          <text class='item-text' style='color:{{item.name===selectName?"#0a99df":"#333"}}'>({{item.unfinishedNum}})</text>
+        </view>
+      </block>
+    </view>
+		
+    <view class='item-line-view' style='margin-left: {{lineMarginLeft}}'></view>
+		
+    <view class="search-view">
+      <search
+        hint="业务号码、问题类型"
+        searchbutton="1"
+        bind:searchEvent="searchEvent"
+      />
+    </view>
+    <view class='start-time' bindtap='changeStartTime'>
+      <text class='start-time-text'>发起时间</text>
+      <view class='arrow-view'>
+        <image style='visibility:{{startTimeState===START_TIME_ENUM.NONE||startTimeState===START_TIME_ENUM.UP?"visible":"hidden"}}' class='arrow' src='../images/personaltalk/arrow_up.png'></image>
+        <image style='visibility:{{startTimeState===START_TIME_ENUM.NONE||startTimeState===START_TIME_ENUM.DOWN?"visible":"hidden"}}'  class='arrow' src='../images/personaltalk/arrow_down.png'></image>
+      </view>
+    </view>
+  </view>
+  <view></view>
+  <scroll-view scroll-top="{{scrollTop}}" class='scroll-view' scroll-y style="height: {{scrollViewHeight}}px">
+    <block wx:key='index' wx:for="{{dataList}}" wx:for-item="item">
+      <view class="item" bindtap="detailsDataView" data-item="{{item}}">
+
+        <!-- 直线 -->
+        <view style='background-color: #eee;height:2px;'></view>
+
+        <view class='itemTitleView'>
+          <image class='itemIconImage' src='{{item.avatarTmp}}'></image>
+          <text class='itemTitle'>{{item.orderCode}}</text>
+        </view>
+
+        <!-- 直线 -->
+        <view style='background-color: #eee;height:1px;margin-left: 20rpx;margin-right: 20rpx;'></view>
+
+        <view class='itemTitleView'>
+          <text class='itemLeftText'>发起时间:</text>
+          <text class='itemRightText'>{{item.workCreateDate}}</text>
+        </view>
+
+        <view class='itemTitleView'>
+          <text class='itemLeftText'>支撑专家:</text>
+          <text class='itemRightText'>{{item.dealPeopleNameAndTel}}</text>
+        </view>
+
+        <image class='phoneImage' src='../images/personaltalk/ai_phone_call.png' catchtap="callPhone" data-item="{{item}}"></image>
+
+        <!--以 data- 开头为绑定数据  最终出现在dataset-->
+        <button wx:if="{{personOrderType==1}}" class='evaluationButton' data-item="{{item}}" catchtap="evaluationAction">评价</button>
+
+      </view>
+    </block>
+
+    <button class='moreButton' bindtap="requestMoreData">{{listBottomText}}</button>
+
+  </scroll-view>
+</view>
+
+<!-- 评价视图 -->
+<evaluation-view bind:hideEvaluationView="hideEvaluationView"
+								isShow="{{isShowEvaluation}}"
+								order="{{evaluationOrder}}"
+								success="{{success}}"> 
+</evaluation-view>

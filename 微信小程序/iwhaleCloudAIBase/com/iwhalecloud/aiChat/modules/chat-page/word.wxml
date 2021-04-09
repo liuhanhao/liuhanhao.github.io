@@ -1,0 +1,158 @@
+<import src="./chat-send-status.wxml"/>
+<import src="./voice.wxml"/>
+<import src="../loading/common.wxml" />
+<import src="../../../utils/wxParse/wxParse.wxml"/>
+
+<import src="./ai-hot-questions.wxml"/>
+<import src="./ai-hot-sub-questions.wxml"/>
+<import src="./ai-experts-seat-select.wxml"/>
+<import src="./ai-experts-select.wxml"/>
+<import src="./ai-artificial.wxml"/>
+<import src="./ai-evaluation.wxml"/>
+
+<template name="chat-word">
+
+		<!-- 顶部的名称 -->
+		<view style="width: 100%;margin-top: 20rpx;text-align:{{isMy?'right':'left'}};font-size: 30rpx;color: #213d52;">
+			<label style='{{isMy?"margin-right: 15rpx;":"margin-left: 15rpx;"}}'>
+				{{characterName}}
+			</label>
+		</view>
+		<!-- 下面的头像 + 文本 -->
+    <view style="width: 100%;display: flex;flex-direction: {{isMy?'row-reverse':'row'}};margin-bottom: {{index===length-1 && type!=='webHtml' && tag!=='Knowledge' && type!=='voice' ? 150:20}}rpx;"> 
+        <image style="width: 70rpx;height: 70rpx;border-radius: 50%;margin-left: 15rpx;margin-right: 15rpx;flex: none;"
+               src="{{headUrl}}"/>
+				<!-- 小圆角 -->
+				<image wx:if="{{type==='text'||type==='voice'||type==='webUrl'||type==='webHtml'}}" class="chat-list-arrow-style" 
+							 src="../images/chat/popu_{{isMy?'blue':'white'}}.png"/>
+
+				<!-- 文本 -->
+        <block wx:if="{{type==='text'||type==='webUrl'||type==='webHtml'}}">
+            <view wx:if="{{type==='text'}}" class="{{isMy?'isMyWordStyle':'isOtherWordStyle'}}"
+                  style="border-radius: 10rpx;padding: 20rpx;font-size: 30rpx;max-width: 60%;"
+                  bindtap="chatTextItemClickEvent"
+                  data-index="{{index}}">{{content}}</view>
+						<!-- 网址 -->
+						<view wx:elif="{{type==='webUrl'}}" class="{{isMy?'isMyWordStyle':'isOtherWordStyle'}}"
+                  style="border-radius: 10rpx;padding: 20rpx;font-size: 30rpx;max-width: 60%;text-decoration:underline;color:#0066cc;"
+                  bindtap="chatTextItemClickEvent"
+                  data-index="{{index}}">{{content}}</view>
+						<!-- HTML标签 -->
+						<view wx:elif="{{type==='webHtml'}}" class="{{isMy?'isMyWordStyle':'isOtherWordStyle'}}"
+                  style="border-radius: 10rpx;padding: 20rpx;font-size: 30rpx;max-width: 75%;"
+                  bindtap="chatTextItemClickEvent"
+                  data-index="{{index}}">
+
+						<template is="wxParse" data="{{wxParseData:article}}"/>
+						
+						</view>
+        </block>
+				<!-- 图片 -->
+        <block wx:if="{{type==='image'}}">
+            <image wx:if="{{type==='image'}}" class="chat-list-pic-style" src="{{content}}" mode="widthFix" bindtap="imageClickEvent" data-url="{{content}}"/>
+        </block>
+				<!-- 小视频 -->
+        <block wx:if="{{type==='voide'}}">
+            <video wx:if="{{type==='voide'}}" class="chat-list-voide-style" src="{{content}}" title="小视频" data-url="{{content}}"/>
+        </block>
+				<!-- 文件  -->
+        <block wx:if="{{type==='file'}}">
+					<view class="{{isMy?'isMyWordStyle':'isOtherWordStyle'}}"
+										style="border-radius: 10rpx;padding: 20rpx;font-size: 30rpx;max-width: 60%;display: flex;flex-direction: column;align-items:center;"
+										bindtap="chatFileItemClickEvent"
+										data-item-index="{{index}}">
+								<!--正常状态  -->
+								<image wx:if="{{fileInfo.downloadState==0}}" style="width: 100rpx;height: 100rpx;" src="../images/ai/ic_file_download.png"/>
+								<!-- 下载中 -->
+								<block wx:elif="{{fileInfo.downloadState==1}}"> 
+									<template is="common-loading" data="{{size:'big'}}"/>
+								</block>
+								<!-- 下载完成 -->
+								<image wx:elif="{{fileInfo.downloadState==2}}" style="width: 100rpx;height: 100rpx;" src="../images/ai/ic_folder.png"/>
+								<!-- 下载失败 -->
+								<image wx:elif="{{fileInfo.downloadState==3}}" style="width: 100rpx;height: 100rpx;" src='../images/chat/send_fail.png'/>
+
+								<text style='text-align:center;word-wrap: break-word;word-break: break-all;'>{{fileInfo.fileName}}</text>
+					</view>
+
+        </block>
+				<!-- 语音 -->
+        <block wx:if="{{type==='voice'}}">
+            <view style="width: {{(voiceDuration-1)*0.6+10}}%;border-radius: 10rpx;padding: 20rpx;font-size: 30rpx;max-width: 60%;display: flex;justify-content: {{isMy?'flex-end':'flex-start'}}"
+                  class="{{isMy?'isMyWordStyle':'isOtherWordStyle'}}"
+                  bindtap="chatVoiceItemClickEvent"
+                  data-voice-path="{{content}}"
+                  data-voice-duration="{{voiceDuration}}"
+									data-file-info="{{fileInfo}}"
+                  data-is-my="{{isMy}}"
+                  data-index="{{index}}">
+                <template is="voice-item" data="{{isMy:isMy,isPlaying:isPlaying}}"/>
+            </view>
+            <view class="voice-duration-style">{{voiceDuration}}"</view>
+        </block>
+
+				<!-- 小蜜顶部的热点问题 -->
+				<block wx:if="{{type==='hotQuestions'}}">
+				<view style='margin-left: 11rpx;height:370rpx;'>
+					<template is="ai-hot-questions" data="{{questions}}"/>
+				</view>
+					
+				</block>
+				<!-- 大问题下的子问题 -->
+				<block wx:if="{{type==='hotSubQuestions'}}">
+					<template is="ai-hot-sub-questions" data="{{questions,index}}"/>
+				</block>
+				<!-- 专家列表选择 -->
+				<block wx:if="{{type==='expertsSelect'}}">
+					<template is="ai-experts-select" data="{{experts}}"/>
+				</block>
+				<!-- 专家坐席选择 -->
+				<block wx:if="{{type==='expertsSeatSelect'}}">
+					<template is="ai-experts-seat-select" data="{{experts}}"/>
+				</block>
+				<!-- 转人工成功 -->
+				<block wx:if="{{type==='artificial'}}">
+					<template is="ai-artificial" data="{{experts}}"/>
+				</block>
+				<!-- 发起评价 -->
+				<block wx:if="{{type==='evaluation'}}">
+					<template is="ai-evaluation" data="{{experts,index}}"/>
+				</block>
+				
+
+				<!-- 发送状态 -->
+        <block wx:if="{{isMy}}">
+            <template is="chat-send-status" data="{{sendStatus:sendStatus,index:index}}"/>
+        </block>
+
+    </view>
+
+		<!--  显示这条回答有用还是没用  -->
+		<view wx:if="{{ type==='webHtml' && tag==='Knowledge'}}" style='width:100%;margin-bottom: {{index===length-1?150:20}}rpx;'>
+			<view class='knowledge-view'>
+
+				<image src='../images/ai/APP-useful.png' class='knowledge-image' catchtap='hotSpotEvaluationEvent' data-index='{{index}}' data-flag='Y' data-es-id='{{esId}}'></image>
+				<text class='knowledge-text' catchtap='hotSpotEvaluationEvent' data-index='{{index}}' data-flag='Y' data-es-id='{{esId}}'>有用</text>
+
+				<image src='../images/ai/APP-Useless.png' class='knowledge-image' catchtap='hotSpotEvaluationEvent' data-index='{{index}}' data-flag='F' data-es-id='{{esId}}'></image>
+				<text class='knowledge-text' style='color:#0f5080;' catchtap='hotSpotEvaluationEvent' data-index='{{index}}' data-flag='F' data-es-id='{{esId}}'>无用</text>
+
+			</view>
+		</view>
+
+		<!-- 语音的翻译 -->
+		<view wx:if="{{type==='voice'}}" style='margin-top:-10rpx;width:100%;margin-bottom: {{index===length-1?150:20}}rpx;'>
+                  
+			<view>
+				<text class='voice-translated' style="{{isMy ? 'float: right;margin-right: 100rpx;' : 'float: left;margin-left: 100rpx;'}}" bindtap='chatVoiceItemTranslatedTextEvent' data-src='{{content}}' data-index="{{index}}">点击转文字</text>
+			</view>
+
+			<view wx:if="{{translatedText.length>0}}" class='voice-translated-view' style="{{isMy ? 'float: right;margin-right: 100rpx;' : 'float: left;margin-left: 100rpx;'}}">
+				<image class='voice-translated-image' src="{{translatedFinsh ? '../images/ai/zhuan.png' : '../images/ai/zhuan_fail.png'}}"></image>
+				<text class='voice-translated-text'>{{translatedText}}</text>
+			</view>
+
+		</view>
+
+
+</template>

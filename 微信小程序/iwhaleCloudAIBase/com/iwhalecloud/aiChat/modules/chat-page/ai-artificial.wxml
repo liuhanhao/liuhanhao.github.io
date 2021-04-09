@@ -1,0 +1,15 @@
+<template name="ai-artificial">
+
+<!-- data experts -->
+	<view class='artificial-backgroundview'>
+		<image class='artificial-icon-image' src='../images/ai/ic_specialor.png'></image>
+
+		<view class='artificial-white'>
+			<view class='artificial-gray-text'>在线客服</view>
+			<view class='artificial-black-text'>{{experts.content}}</view>
+			<view class='artificial-blue-text'>很高兴为您服务</view>
+		</view>
+	</view>
+	
+
+</template>

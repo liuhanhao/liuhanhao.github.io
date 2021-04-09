@@ -1,0 +1,75 @@
+.big-scrollview {
+	height: 350rpx;
+	white-space: nowrap;
+}
+
+.hot-view {
+	display: inline-block;
+	/* vertical-align: top; */
+	/* justify-content: flex-start;
+	flex-direction: row; */
+	background-color: white;
+	border-radius: 20rpx;
+	width: 500rpx;
+	height: 350rpx;
+}
+
+.hot-image {
+	margin-top: 30rpx;
+	margin-left: 20rpx;
+	height: 290rpx;
+	width: 120rpx;
+	float: left;
+}
+
+.small-scrollview {
+	background-color: white;
+	border-radius: 20rpx;
+	display: inline-block;
+	height: 350rpx;
+	width: 350rpx;
+}
+
+.hot-cell {
+	 /* 让view 自动换行 */
+	white-space: pre-wrap;
+	padding: 20rpx 0rpx 20rpx 20rpx;
+	font-size: 30rpx;
+	width: 320rpx;
+}
+.line {
+	background-color: lightgray;
+	height: 3rpx;
+	margin-left: 20rpx;
+}
+
+.question-item {
+	vertical-align: top;
+	/* font-size: 15rpx; */
+	display:inline-block;
+	background-color: white;
+	border-radius: 20rpx;
+	width: 200rpx;
+	height: 350rpx;
+	margin-left: 20rpx;
+	margin-top: 0rpx;
+}
+.question-item-text {
+	margin-top: 30rpx;
+	text-align: center;
+	width: 200rpx;
+	font-size: 30rpx;
+	/* 超出一行文字自动隐藏 */
+	/* overflow: hidden;  */
+	/* 文字隐藏后添加省略号 */
+	/* text-overflow: ellipsis; */
+	/* 强制不换行 */
+	/* white-space: pre-wrap; */
+}
+.question-item-text1 {
+	margin-top: 10rpx;
+	color: gray;
+	text-align: center;
+	width: 200rpx;
+	font-size: 23rpx;
+}

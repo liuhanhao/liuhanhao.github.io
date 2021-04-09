@@ -1,0 +1,39 @@
+.main {
+  display: flex;
+  flex-direction: row;
+  height: 80rpx;
+}
+.textField {
+  display: flex;
+  flex-direction: row;
+  border-radius: 5rpx;
+  background-color: #eee;
+  padding: 15rpx;
+  align-items: center;
+  width: 500rpx;
+}
+.image {
+  height: 60rpx;
+  width: 60rpx;
+}
+.image-delete{
+  height: 60rpx;
+  width: 60rpx;
+}
+.input {
+  margin-left: 15rpx;
+  font-size: 35rpx;
+  flex: 1;
+}
+.searchButton {
+  width: 150rpx;
+  color: #0a99df;
+  font-size: 16px;
+  display: flex;
+	flex-direction: row;
+	justify-content: center;
+  border: 1rpx solid #1e96f7; 
+  border-radius: 14rpx;  
+  background-color: #f5f9fd;
+	margin-left: 10rpx;
+}

@@ -1,0 +1,183 @@
+.tabbar{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.tabbar-item{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20rpx;
+}
+.item-text{
+  color: #333;
+  font-size: 35rpx;
+}
+.itemLine {
+  width: 50%;
+  height: 2rpx;
+  background-color: rgb(29,150,247);
+  
+}
+
+
+/* 基本信息的CSS */
+.showbackground {
+  height: 80rpx;
+  width: 100%;
+  /* background-color: red; */
+
+}
+/* .setting{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center; 
+} */
+.icontitle {
+  height: 40rpx;
+  display: inline-block;
+  margin-top: 20rpx;
+  color: black;
+  font-size: 35rpx;
+}
+.iconimage{
+  width: 50rpx;
+  height: 50rpx;
+  margin-left: 15rpx;
+  margin-top: 15rpx;
+  float:left;
+}
+
+
+
+.lineStyle {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: left; 
+}
+.leftText {
+  width: 200rpx;
+  color: #000000;
+  margin-left: 20rpx;
+  margin-top: 15rpx;
+  font-size: 32rpx;
+}
+.rightText {
+  /* flex: 1; */
+  color: #000000;
+  margin-right: 10rpx;
+  margin-top: 15rpx;
+  font-size: 32rpx;
+}
+.imgList {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: left; 
+}
+.imgItem {
+  /* background-color: cornflowerblue; */
+  display: inline-block;
+  width: 50px;
+  height: 70px;
+  margin: 10px;
+}
+
+/* 工单轨迹的风格 */
+.garyLine {
+  display: inline-block;
+  position: absolute;
+  background-color: lightgrey;
+  width: 2rpx;
+  height: 100%;
+  top: 90rpx;
+  left: 70rpx;
+}
+.iconNumText {
+  display: inline-block;
+  position: absolute;
+  height: 60rpx;
+  width: 60rpx;
+  left: 40rpx;
+  top: 84rpx;
+  text-align: center;
+  color: rgb(29,150,247);
+}
+.iconNumImage {
+  position: absolute;
+  left: 40rpx;
+  top: 80rpx;
+}
+.jiaoImage {
+  position: absolute;
+  left: 110rpx;
+  top: 85rpx;
+}
+.contentView {
+  margin-right: 20rpx;
+  margin-top: 60rpx;
+  margin-left: 144rpx;
+  margin-bottom: 20px;
+  background-color: rgb(245,248,253);
+  border-radius: 10rpx;
+  border-color: rgb(29,150,247);
+  border-style: solid;
+  border-width: 3rpx;
+  display: flex;
+  flex-direction: column;
+}
+.lineView {
+  display: flex;
+  width: 100%;
+}
+.leftValue {
+  width: 160rpx;
+  color: #000000;
+  margin-left: 20rpx;
+  margin-top: 15rpx;
+  font-size: 32rpx;
+}
+.rightValue {
+  /* P标签不换行了 */
+  word-wrap: break-word;
+  word-break: break-all;
+  
+  /* 指定了这是第几列 */
+  flex: 1;
+  color: #000000;
+  margin-right: 10rpx;
+  margin-top: 15rpx;
+  font-size: 32rpx;
+}
+.phoneimage {
+  width: 40rpx;
+  height: 40rpx;
+  margin-top: 15rpx;
+  float: right;
+}
+.cuidanButton {
+  position: fixed;
+  width: 120rpx;
+  height: 120rpx;
+  right: 40rpx;
+  bottom: 40rpx;
+  background-color: rgb(25,155,220);
+  z-index: 8!important;
+  border-radius: 60rpx;
+	opacity: 0.7;
+}
+
+.ic_specialor {
+	position: fixed;
+  width: 120rpx;
+  height: 120rpx;
+  right: 40rpx;
+  bottom: 170rpx;
+  background-color: rgba(46, 131, 211, 0.836);
+  z-index: 8!important;
+  border-radius: 60rpx;
+}

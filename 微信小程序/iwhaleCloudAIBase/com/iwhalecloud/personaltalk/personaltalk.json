@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "个人会话",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+		"evaluation-view": "../components/evaluation-view/evaluation-view",
+    "search":"../components/search/search"
+  }
+}

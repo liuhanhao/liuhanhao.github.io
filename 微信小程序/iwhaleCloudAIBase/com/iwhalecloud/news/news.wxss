@@ -1,0 +1,61 @@
+@import "../aiChat/modules/chat-page/chat-page-status.wxss";
+
+.main {
+  display: flex;
+  flex-direction: column;
+  padding: 30rpx 20rpx 0rpx 20rpx;
+}
+
+.item {
+  border-bottom: 1rpx solid #ddd;
+  padding: 10rpx 10rpx;
+  display: flex;
+  flex-direction: row;
+}
+.item-image {
+  height: 100rpx;
+  width: 100rpx;
+  align-self: center;
+  flex-shrink:0;
+}
+.item-tip{
+  flex-shrink:0;
+  margin-left:-40rpx;
+  height:50rpx;
+  width:50rpx;
+  border-radius: 50%;
+  font-size: 30rpx;
+  padding: auto 0rpx;
+  background-color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.item-tip-text {
+  margin-top: -3rpx;
+  color: white;
+}
+.item-right-view {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20rpx;
+  flex: 1;
+}
+.item-name {
+  margin: 10rpx;
+  color: #000;
+  font-size: 35rpx;
+}
+.item-value {
+  margin: 10rpx;
+  color: #777;
+  font-size: 35rpx;
+  line-height: 35rpx;
+  height: 35rpx;
+  width: 0rpx;
+  flex: 1;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+

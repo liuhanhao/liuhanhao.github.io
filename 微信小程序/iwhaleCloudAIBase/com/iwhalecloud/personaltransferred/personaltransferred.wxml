@@ -1,0 +1,37 @@
+<view>
+
+  <view class='flexview'>
+    <label class='label'>办结确认</label>
+    
+    <radio-group class="radio-group" bindchange="radioChange">
+      <label class="label" wx:for="{{items}}" wx:key="">
+        <radio value="{{item.name}}" checked="{{item.checked}}" color="#4196F7" />
+        {{item.value}}
+      </label>
+    </radio-group>
+
+  </view>
+
+  <view class='flexview'>
+    <label class='label'>是否满意</label>
+
+    <button class='btn1' bindtap='popoverListClick'>
+      <image class='iconimage' src="../images/personaltalk/arrow_down.png"></image>
+      {{satisfiedContent}}
+    </button>
+
+  </view>
+
+  <view class='flexview' style='align-items:flex-start;'> 
+    <label class='label'>备注</label>
+    <textarea class='textview' 
+		style="{{ios?'padding: 0rpx 0rpx;width: 480rpx;':'padding: 20rpx 20rpx;'}}"
+		placeholder="请输入备注"
+    placeholder-style="color: lightgray;"
+    bindblur="bindblur">
+    </textarea>
+  </view>
+
+  <button bindtap="makeBtnClick" style="width: 100%;height: 45px;color: white;background-color: #0B99DE;font-size: 18px;padding: 3px;position: fixed;bottom: 0px;"> 确定 </button>
+
+</view>

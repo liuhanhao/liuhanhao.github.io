@@ -1,0 +1,50 @@
+{
+  "pages": [
+		
+		"com/iwhalecloud/login/loginAI",
+		"com/iwhalecloud/ai/aiChat",
+		"com/iwhalecloud/aiGroup/groupInformation",
+		"com/iwhalecloud/aiGroup/groupChatRecord",
+
+    "com/iwhalecloud/news/news",
+    "com/iwhalecloud/support/supportOrder",
+		"com/iwhalecloud/supportDetails/supportDetails",
+    "com/iwhalecloud/personaltransferred/personaltransferred",
+		"com/iwhalecloud/personaltalkdetails/personaltalkdetails",
+    "com/iwhalecloud/personaltalk/personaltalk",
+		"com/iwhalecloud/webView/webView"
+    
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#0c99de",
+    "navigationBarTitleText": "小蜜",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#707070",
+    "selectedColor": "#1296db",
+    "borderStyle": "black",
+    "list": [
+      {
+        "selectedIconPath": "com/iwhalecloud/images/main/message_1.png",
+        "iconPath": "com/iwhalecloud/images/main/message_0.png",
+        "pagePath": "com/iwhalecloud/news/news",
+        "text": "消息"
+      },
+      {
+        "selectedIconPath": "com/iwhalecloud/images/main/supportList_1.png",
+        "iconPath": "com/iwhalecloud/images/main/supportList_0.png",
+        "pagePath": "com/iwhalecloud/support/supportOrder",
+        "text": "支撑单"
+      },
+      {
+        "selectedIconPath": "com/iwhalecloud/images/main/personSession_1.png",
+        "iconPath": "com/iwhalecloud/images/main/personSession_0.png",
+        "pagePath": "com/iwhalecloud/personaltalk/personaltalk",
+        "text": "个人会话"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

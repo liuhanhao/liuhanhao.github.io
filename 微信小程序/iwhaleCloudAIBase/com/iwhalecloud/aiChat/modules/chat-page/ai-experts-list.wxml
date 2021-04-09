@@ -1,0 +1,43 @@
+<template name="ai-experts-list">
+
+<view class="appriase-dialog {{ showExpertsList ? 'appriase-dialog--show' : '' }}">
+  <view class="appriase-dialog__mask" bindtap="hideExpertsListView" />
+  <view class="appriase-dialog__container">
+    <view style='display:flex;flex-direction: row;padding: 15rpx;border-bottom: solid 1rpx #cccccc;'>
+      <text class="appriase-item-name" style=' flex: 1;'>请选择支撑专家</text>
+      <image bindtap="hideExpertsListView" style='width:40rpx; height:40rpx;' src='../images/components/alert-close-icon.png'></image>
+
+    </view>
+
+		<scroll-view class='experts-small-scrollview' style='height: 520rpx;'
+										scroll-y="true">
+							
+			<block wx:key='index' wx:for="{{experts}}">
+			<view catchtap='selectExpert' data-expert='{{item}}'>
+				<image class='experts-icon-image'
+							src='../images/ai/ic_specialor.png'></image>
+
+				<view style='display: inline-block;'>
+					<view class='experts-hot-cell' style="font-size: 32rpx;margin-top: 10rpx;">{{item.staffName}}</view>
+					<!-- 星星控件 item.starRate-->
+					<image src="{{item.rateNum>0?'../images/components/ic_rate_solid.png':'../images/components/ic_rate_stroke.png'}}" class="experts-starRate"/>
+					<image src="{{itemrateNum>1?'../images/components/ic_rate_solid.png':'../images/components/ic_rate_stroke.png'}}" class="experts-starRate"/>
+					<image src="{{item.rateNum>2?'../images/components/ic_rate_solid.png':'../images/components/ic_rate_stroke.png'}}" class="experts-starRate"/>
+					<image src="{{item.rateNum>3?'../images/components/ic_rate_solid.png':'../images/components/ic_rate_stroke.png'}}" class="experts-starRate"/>
+					<image src="{{item.rateNum>4?'../images/components/ic_rate_solid.png':'../images/components/ic_rate_stroke.png'}}" class="experts-starRate"/>
+
+					<view class='experts-hot-cell' style='font-size: 25rpx;color: gray;display: block;'>{{item.groupName}}</view>
+				</view>
+
+				<view class='line'></view>
+
+			</view>
+			</block>
+			
+		</scroll-view>
+
+  </view>
+</view>
+	
+
+</template>

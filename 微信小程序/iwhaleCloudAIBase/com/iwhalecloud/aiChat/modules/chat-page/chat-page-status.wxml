@@ -1,0 +1,5 @@
+<template name="chat-page-status">
+    <view style="height: {{chatStatue==='open'?'70rpx':'0rpx'}};" class="chat-page-status-style">
+        {{chatStatusContent}}
+    </view>
+</template>

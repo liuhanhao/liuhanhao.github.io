@@ -1,0 +1,74 @@
+page {
+	background-color: #eaeaea;
+}
+
+.information-title {
+	font-size: 35rpx;
+	margin: 20rpx;
+	word-wrap: break-word;
+  word-break: break-all;
+	
+}
+
+.information-list {
+	clear: both;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	/* 弹性盒子的换行方式 */
+	flex-wrap: wrap;
+	width: 100%;
+}
+
+.information-item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 20rpx;
+}
+.information-image1 {
+	width: 80rpx;
+	height: 80rpx;
+}
+.information-name1 {
+	color: rgb(25,155,220);
+	font-size: 32rpx;
+}
+.information-image2 {
+	width: 80rpx;
+	height: 80rpx;
+	/* 图片变灰 */
+	filter: grayscale(100%); 
+}
+.information-name2 {
+	color: gray;
+	font-size: 32rpx;
+}
+
+
+.information-lineview {
+	margin-top: 30rpx;
+	margin-bottom: 10rpx;
+	background-color: #cccccc;
+	height: 1rpx;
+}
+.information-select-item {
+	height: 80rpx;
+	background-color: white;
+	text-align: left;
+}
+.information-select-title {
+	font-size: 35rpx;
+	line-height: 60rpx;
+	margin-top: 10rpx;
+	display: inline-block;
+	margin-left: 20rpx;
+}
+.information-jiantou {
+	float: right;
+	/* display: inline-block; */
+	width: 30rpx;
+	height: 40rpx;
+	margin-right: 50rpx;
+	margin-top: 20rpx;
+}

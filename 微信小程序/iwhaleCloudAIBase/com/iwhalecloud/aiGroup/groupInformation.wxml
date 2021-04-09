@@ -1,0 +1,33 @@
+<!--com/iwhalecloud/aiGroup/groupInformation.wxml-->
+<view class='information-title'>{{group.groupname}}</view>
+
+<view style='background-color: white;'>
+
+	<view class='information-title' style='float: left;'>群内成员</view>
+	<view class='information-title' style='float: right;'>共{{groupMemberNum}}人</view>
+
+	<view class='information-list'>
+		<block wx:for="{{groupMemberList}}" wx:key="{{index}}">
+				<view class='information-item'>
+					<block wx:if="{{item.status == 'online'}}">
+						<image class='information-image1' src='{{item.avatarTmp}}'></image>
+						<view class='information-name1'>{{item.name}}</view>
+						<view class='information-name1'>{{item.statusText}}</view>
+					</block>
+					<block wx:else>
+						<image class='information-image2' src='{{item.avatarTmp}}'></image>
+						<view class='information-name2'>{{item.name}}</view>
+						<view class='information-name2'>{{item.statusText}}</view>
+					</block>
+				</view>
+		</block>
+	</view>
+
+	<view class='information-lineview'></view>
+	<view class='information-select-item' bindtap='gotoChatRecordView'>
+		<view class='information-select-title'>聊天记录</view>
+		<image class='information-jiantou' src='../images/ai/App_rightArrow.png'></image>
+	</view>
+	<view class='information-lineview' style='margin-top: 0rpx;'></view>	
+
+</view>

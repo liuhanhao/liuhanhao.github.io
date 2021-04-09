@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "支撑单",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+		"feedback-view": "../components/feedback-view/feedback-view",
+    "search": "../components/search/search"
+  }
+}

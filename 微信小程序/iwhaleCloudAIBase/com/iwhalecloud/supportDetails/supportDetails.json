@@ -1,0 +1,6 @@
+{
+	"navigationBarTitleText": "支撑单详情",
+	"usingComponents": {
+		"feedback-view": "../components/feedback-view/feedback-view"
+	}
+}

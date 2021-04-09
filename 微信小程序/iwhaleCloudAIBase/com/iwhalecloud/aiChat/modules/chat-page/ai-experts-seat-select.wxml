@@ -1,0 +1,23 @@
+<template name="ai-experts-seat-select">
+    <!-- data: experts -->
+		<scroll-view class='big-scrollview'
+								 scroll-x="true">
+						
+				<view class='hot-view'>
+					<image class='hot-image' src='../images/ai/ic_specialgroup_tips.png'></image>
+
+					<scroll-view class='small-scrollview'
+											scroll-y="true">
+						
+						<block wx:key='index' wx:for="{{experts}}" wx:for-item="item">
+							<view class='hot-cell' catchtap='selectExpertGroup' data-expert-group='{{item}}'>{{item.groupName}}</view>
+							<view class='line'></view>
+						</block>
+
+					</scroll-view>
+
+				</view>
+
+		</scroll-view>
+
+</template>

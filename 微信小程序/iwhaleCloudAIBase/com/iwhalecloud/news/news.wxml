@@ -1,0 +1,52 @@
+<import src="../aiChat/modules/chat-page/chat-page-status.wxml"/>
+
+<!-- socket连接状态 -->
+<template is="chat-page-status" data="{{chatStatue,chatStatusContent}}"/>
+
+<view class="main" style="margin-top: {{chatStatue==='open'?'70rpx':'0rpx'}};">
+  <search id="search" hint="业务号码、问题类型" bind:searchEvent="searchEvent"></search>
+
+  <scroll-view style="width: 100%;display: flex;flex-direction: column;"
+	scroll-y="true"
+  scroll-top="{{scrollTopVal}}"
+	>
+
+    <view class="item" bindtap="selectChatItem" data-item="{{xiaomiBean}}">
+      <image class='item-image' src='../images/main/ai_default_avatar.png'></image>
+      <view class='item-right-view'>
+        <text class="item-name" style='color:#1e94f3;'>HI!遇到问题随时找小蜜哦！还能帮你推荐专家呢！</text>
+      </view>
+    </view>
+    <block wx:key='index' wx:for="{{displayGroupList}}" wx:for-item="item">
+      <!-- <leftMoveDelete params="{{index}}" bind:delItem="delItem"> -->
+        <view class="item" bindtap="selectChatItem" data-index='{{index}}'>
+          <image class='item-image' src='{{item.avatarTmp}}'></image>
+          <view wx:if="{{item.unreadNum>0}}" class='item-tip'>
+            <text class='item-tip-text'>{{item.unreadNum>99?99:item.unreadNum}}</text>
+          </view>
+          <view class='item-right-view'>
+            <view style="display:flex;flex-direction: row;">
+              <text class="item-name">{{item.name}}</text>
+              <text class="item-value" style='margin: 10rpx 0rpx;'>{{item.questionCode}}</text>
+              <text style='margin: 10rpx 0rpx;color: #777;font-size: 25rpx;' wx:if="{{item.lastTime != 0}}">{{item.lastTime}} </text>
+            </view>
+            <view style="display:flex;flex-direction: row;">
+              <text class="item-value" style=''>{{item.content}}</text>
+              <button style='color: white;height: 46rpx;width: 150rpx;border-radius: 1em;background-color: #ffb241; text-align: center; font-size: 28rpx;line-height:46rpx;' wx:if="{{item.groupState == '10V'}}" catchtap="showEvaluationView" data-index="{{index}}">待评价</button>
+            </view>
+
+          </view>
+        </view>
+      <!-- </leftMoveDelete> -->
+    </block>
+  </scroll-view>
+
+</view>
+
+<!-- 评价视图 -->
+<evaluation-view bind:hideEvaluationView="hideEvaluationView"
+								isShow="{{isShowEvaluation}}"
+								group="{{evaluationGroup}}"
+								success="{{success}}"> 
+</evaluation-view>
+

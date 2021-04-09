@@ -1,0 +1,64 @@
+.appriase-dialog__mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.4);
+  display: none;
+}
+
+.appriase-dialog__container {
+  position: fixed;
+  bottom: 0rpx;
+  right: 0;
+  left: 0;
+  height: 500rpx;
+  background: #f8f8f8;
+  transform: translateY(300%);
+  transition: all 0.4s ease;
+  z-index: 12;
+  border-radius: 20rpx;
+  box-shadow: 0rpx 5rpx 5rpx 5rpx gainsboro;
+}
+
+.appriase-dialog--show .appriase-dialog__container {
+  transform: translateY(0);
+}
+
+.appriase-dialog--show .appriase-dialog__mask {
+  display: block;
+}
+
+.item-name {
+	font-size: 35rpx;
+	color: gray;
+}
+
+.inputText {
+  color: grey;
+  font-size: 30rpx;
+  margin-top: 10rpx;
+  margin-left: 15rpx;
+}
+.inputClass {
+	height: 220rpx;
+	background-color:white;
+	border: 1px solid lightgray;
+	position: absolute;
+	bottom: 120rpx;
+	left:15rpx;
+	width:685rpx;
+	font-size: 30rpx;
+	padding: 10rpx;
+}
+.submitButton {
+  color: white;
+  background-color: #0B99DE;
+	font-size: 35rpx;
+  position: absolute;
+	left:15rpx;
+	right:15rpx;
+  bottom: 0rpx;
+}
